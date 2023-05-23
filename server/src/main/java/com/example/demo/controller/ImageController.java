@@ -19,7 +19,7 @@ public class ImageController {
         this.cloudStorageService = cloudStorageService;
     }
 
-    @GetMapping("/all")
+    @GetMapping("/get_all")
     public List<String> getAllImageUrls() {
         return cloudStorageService.getAllImageUrls();
     }
