@@ -23,13 +23,8 @@ public class CloudStorageService {
 
     @PostConstruct
     public void initializeStorage() throws IOException {
-        String keyPath = "arte-service-account-key.json";
-
         // Create a storage client object using the service account key file
-        storage = StorageOptions.newBuilder()
-                .setCredentials(GoogleCredentials.fromStream(new FileInputStream(keyPath)))
-                .build()
-                .getService();
+        storage = StorageOptions.getDefaultInstance().getService();
 
         bucketName = "arte-386819.appspot.com";
         folderName = "temp-images";
