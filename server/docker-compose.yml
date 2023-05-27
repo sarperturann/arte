@@ -1,0 +1,13 @@
+version: '3.8'
+name: arte
+## Docker Container with database image only - application image to be added soon
+services:
+  db:
+    image: postgres
+    container_name: arte-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: testdb
+    ports:
+      - "5432:5432"
