@@ -14,19 +14,21 @@
  * limitations under the License.
  */
 
-package com.example;
+package com.example.demo.controller;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Web app controller class for sample application. Contains a function that runs a query and
  * displays the results.
  */
 @RestController
+@RequestMapping("/api")
 public class WebController {
 
     private final JdbcTemplate jdbcTemplate;
@@ -41,4 +43,6 @@ public class WebController {
                 .map(m -> m.values().toString())
                 .collect(Collectors.toList());
     }
+
+
 }
