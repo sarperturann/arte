@@ -1,2 +1,6 @@
 runtime: java17
 instance_class: F1
+handlers:
+  - url: /src/main/resources
+    static_files: resources
+    upload: resources
