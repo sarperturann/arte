@@ -49,5 +49,25 @@ public class ShoppingCartController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @PutMapping("/{cartId}/add_artwork")
+    public ResponseEntity<Void> addArtworkToCart(@PathVariable Long cartId, @RequestParam Long artworkId) {
+        boolean isAdded = service.addArtwork(cartId, artworkId);
+        if (isAdded) {
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PutMapping("/{cartId}/remove_artwork")
+    public ResponseEntity<Void> removeArtworkFromCart(@PathVariable Long cartId, @RequestParam Long artworkId) {
+        boolean isDeleted = service.removeArtwork(cartId, artworkId);
+        if (isDeleted) {
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
 
