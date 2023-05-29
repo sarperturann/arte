@@ -8,4 +8,6 @@ import lombok.Data;
 public class ImageDto {
     private String fileName;
     private String fileUrl;
+
+
 }
