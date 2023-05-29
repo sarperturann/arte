@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './Shop.css'
-import ShopItems from '../components/ShopItems'
+//import ShopItems from '../components/ShopItems'
 import { Link } from 'react-router-dom'
 
  const Shop = () => {
@@ -18,7 +18,7 @@ import { Link } from 'react-router-dom'
           / Product
         </p>
       </div>
-      <ShopItems />
+    
     </div>
   )
 }
