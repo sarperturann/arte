@@ -1,0 +1,44 @@
+.productPage{
+    width: 1240px;
+    margin: auto;
+    padding: 25px 5px;
+}
+.sec1{
+    display: flex;
+}
+
+/* second break point */
+@media only screen and (max-width: 1270px) {
+    .productPage{
+        width: 90%;
+    }
+}
+
+/* third break point */
+@media only screen and (max-width: 1160px) {
+    .productPage{
+        width: 99%;
+    }
+}
+
+/* fourth break point */
+@media only screen and (max-width: 970px) {
+    .productPage{
+        padding: 20px 0px;
+    }
+}
+
+/* fourth break point */
+@media only screen and (max-width: 768px) {
+    .sec1{
+        flex-direction: column;
+    }
+}
+
+/* fifth break point */
+@media only screen and (max-width: 425px) {
+    .productPageDetail{
+        width: auto;
+        padding: 5px 12px;
+    }
+}

@@ -1,0 +1,30 @@
+.shopTitle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+    background-image: url('https://res.cloudinary.com/inovatormatin/image/upload/v1653646910/eway/banner/shop-title_lcffhw.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 200px;
+}
+.shopTitle h2{
+    font-size: 3rem;
+    margin: .8rem;
+    font-weight: 500;
+}
+
+/* first break point */
+@media only screen and (max-width: 932px) {
+    .shopTitle{
+        height: 130px;
+    }
+    .shopTitle h2{
+        font-size: 2rem;
+        margin: .5rem;
+    }
+    .shopTitle p{
+        margin: .5rem;
+    }
+}
