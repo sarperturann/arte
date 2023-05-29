@@ -12,4 +12,5 @@ env_variables:
   SPRING_DATASOURCE_USERNAME: postgres
   SPRING_DATASOURCE_PASSWORD: postgres
   SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.PostgreSQL95Dialect
+  GOOGLE_APPLICATION_CREDENTIALS: /var/run/secrets/cloud.google.com/service-account.json
 
