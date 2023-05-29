@@ -32,8 +32,7 @@ public class ShoppingCartService {
     }
 
     public boolean deleteCartById(Long id) {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
+        if (repository.existsById(id)) {repository.deleteById(id);
             return true;
         }
         return false;
