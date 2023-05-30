@@ -8,7 +8,7 @@ import {
     sendMessageResult
 } from './utilsReducers'
 import { getallBlogsReducer } from './blogReducers'
-import { getallProductsReducer } from './productReducers'
+import { getallProductsReducer } from './ProductReducers'
 import { getallOrdersReducer } from './orderReducers'
 import { getArtworkImagesReducer } from './artworkImageReducers'
 import { cartReducer } from './cartReducers'
