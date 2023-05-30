@@ -28,20 +28,9 @@ const Myorders = () => {
                 :
                 <div className='Myorderspage'>
                     <h1>My Orders</h1>
+                     
                     <div>
-                        {userOrders.orders.length > 0 ?
-                            userOrders.orders.map((item, key) => {
-                                return <ProductTable key={key} data={item} index={key + 1} />
-                            })
-                            :
-                            <p
-                                style={{
-                                    textAlign: "center",
-                                    fontWeight: "600"
-                                }}
-                            >You don't have any order.
-                            </p>
-                        }
+                    // commented
                     </div>
                 </div>
             }
@@ -50,3 +39,20 @@ const Myorders = () => {
 }
 
 export default Myorders
+
+//commented:
+/** 
+{userOrders.orders.length > 0 ?
+    userOrders.orders.map((item, key) => {
+        return <ProductTable key={key} data={item} index={key + 1} />
+    })
+    :
+    <p
+        style={{
+            textAlign: "center",
+            fontWeight: "600"
+        }}
+    >You don't have any order.
+    </p>
+}
+*/
