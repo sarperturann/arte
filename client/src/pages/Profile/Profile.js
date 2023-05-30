@@ -56,12 +56,12 @@ const Profile = () => {
   const onUpdate = (e) => {
     e.preventDefault()
     showSaveButton(true);
-    dispatch(userUpdateInfo(userInfo))
+    //dispatch(userUpdateInfo(userInfo))
   }
 
   useEffect(() => {
     if (userState.userInfo.name === undefined) {
-      dispatch(getUserInfo())
+      //dispatch(getUserInfo())
     }
     setFormValues(JSON.parse(JSON.stringify(userState.userInfo)));
   }, [userState]) // eslint-disable-line 

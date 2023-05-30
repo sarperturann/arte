@@ -9,7 +9,7 @@ import {
 } from "react-icons/hi";
 import { BiPhone, BiMapPin, BiMessageSquareEdit } from "react-icons/bi";
 import { FaRegAddressCard } from "react-icons/fa";
-import { getUserInfo } from "../../actions/userActions";
+//import { getUserInfo } from "../../actions/userActions";
 import { getCartbyUser } from "../../actions/cartAction";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -70,7 +70,7 @@ const PlaceOrder = () => {
 
   useEffect(() => {
     if (userState.userInfo.name === undefined) {
-      dispatch(getUserInfo());
+      //dispatch(getUserInfo());
     }
     calculateTotal();
   }, [userState, userCart]); // eslint-disable-line
