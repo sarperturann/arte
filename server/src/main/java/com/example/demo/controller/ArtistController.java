@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import java.util.Optional;
 
 import java.util.List;
-
+@CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping("/api/v1/artist")
 public class ArtistController {
