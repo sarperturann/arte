@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './ShopItems.css'
 import { useSelector } from 'react-redux'
-import { Product, RingLoader, Dropdown } from '../../index'
+import { Product, RingLoader } from '../../index'
 import { Button } from '@mui/material'
 
 const ShopItems = () => {
@@ -46,7 +46,7 @@ const ShopItems = () => {
             {products !== null ?
                 <>
                     <nav className='shopItemNav'>
-                        <Dropdown catOption={catOption} setCatOption={setCatOption} />
+                       
                         <div className='leftNav'>
                             <span>
                                 {`Showing 1 - 
