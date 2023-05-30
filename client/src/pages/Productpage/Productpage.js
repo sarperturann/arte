@@ -7,6 +7,9 @@ const Productpage = () => {
   // getting data
   const location = useLocation();
   const { name, img1, img2, description, price, tags, _id } = location.state.product;
+  const artwork = location.state.artwork;
+  const artworkImage = location.state.artworkImage;
+  const artist = location.state.artwork.artist;
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -15,14 +18,14 @@ const Productpage = () => {
   return (
     <div className='productPage'>
       <section className='sec1'>
-        <Preview img1={img1} img2={img2} />
+        <Preview img1={artworkImage}  />
         <ProductpageDetail
-          name={name}
-          description={description}
-          price={price}
+          name={artwork.title}
+          description={artwork.dimensions}
+          price={artwork.price}
           tags={tags}
           id={_id}
-          primaryImg={img1}
+          primaryImg={artworkImage}
         />
       </section>
     </div>

@@ -101,10 +101,7 @@ const ProductpageDetail = ({
         flexWrap: "wrap",
         alignItems: "baseline"
       }}>
-        <label>Tags: </label>
-        {tags.map((tag, index) => {
-          return <span className="tag" key={index}>{`${tag}`}</span>;
-        })}
+        
       </p>
     </div>
   );
