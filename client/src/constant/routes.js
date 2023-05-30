@@ -1,4 +1,5 @@
 const eway = "https://eway-server.vercel.app/api/";
+const gcloud = "https://arte-386819.uc.r.appspot.com";
 
 // auth routes
 export const login = eway + 'users/login';
@@ -22,6 +23,7 @@ export const deleteblog = eway + 'blogs/deleteblog/'; // blog id required
 // product routes
 export const addproduct = eway + 'products/addblog';
 export const getallproducts = eway + 'products/getallproducts';
+export const getAllArtworkImages = gcloud + "/api/v1/images/get_all";
 export const updateproduct = eway + 'products/updateproduct/'; // product id required
 export const deleteproduct = eway + 'products/deleteproduct/'; // product id required
 

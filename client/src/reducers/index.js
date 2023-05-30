@@ -20,7 +20,8 @@ const rootReducer = combineReducers({
     cart: cartReducer,
     searchKeyword: getSearchResult,
     sendMessage: sendMessageResult,
-    userOrders: getallOrdersReducer
+    userOrders: getallOrdersReducer,
+    getAllArtworkImages: getallProductsReducer
 });
 
 export default rootReducer;

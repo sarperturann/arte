@@ -18,6 +18,7 @@ import { Navbar, Footer, Toast, UnderDev, BottomNavigationbar } from "./componen
 import { useDispatch } from "react-redux";
 import { getallProducts } from "./actions/productActions";
 import Cookies from 'universal-cookie'
+import { getArtworkImages } from "./actions/artworkImageActions";
 
 const App = () => {
   const cookies = new Cookies()
@@ -50,6 +51,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(getallProducts());
+    dispatch(getArtworkImages());
   }, []); // eslint-disable-line
   return (
     <>
