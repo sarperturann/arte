@@ -9,16 +9,6 @@ const Preview = ({img1, img2}) => {
     }
     return (
         <div className='imageSection'>
-            <div className='selectImage'>
-                <img
-                    className={productImage === img1 ? 'activeImage' : ''}
-                    src={img1} alt="firstImage"
-                    onClick={() => imageHandler(img1)} />
-                <img
-                    className={productImage === img2 ? 'activeImage' : ''}
-                    src={img2} alt="firstImage"
-                    onClick={() => imageHandler(img2)} />
-            </div>
             {/* magnify component */}
             <div className='magnifyBox'>
                 <ReactImageMagnify {...{
