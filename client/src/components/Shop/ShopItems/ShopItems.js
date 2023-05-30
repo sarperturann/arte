@@ -10,9 +10,7 @@ const ShopItems = () => {
     const { products } = productState;
     console.log(products)
     const artworkImagesState = useSelector(state => state.getArtworkImages);
-    console.log(artworkImagesState);
-    const { artworkImages } = artworkImagesState;
-    console.log(artworkImages);
+    const artworkImages = artworkImagesState.products;
     const [totalProduct, setTotalProduct] = useState(8)
     const [catOption, setCatOption] = useState('All Products');
     const [filteredProduct, setFilteredProduct] = useState([]);
@@ -60,7 +58,7 @@ const ShopItems = () => {
                     </nav>
                     <section className='itemgallery'>
                         {filteredProduct.slice(0, totalProduct).map(((product, index) =>
-                            <Product key={index} product={product} artworkImage={artworkImages} />
+                            <Product key={index} product={product} artworkImage={artworkImages[index]} />
                         ))}
                     </section>
                 </>
