@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @Entity
-@Table(name = "artworksv2")
+@Table(name = "artworks")
 public class Artwork {
 
     @Id
@@ -23,8 +23,9 @@ public class Artwork {
     @Column(name = "PRICE")
     private BigDecimal price;
 
-    @Column(name = "ARTIST")
-    private String artist;
+    @ManyToOne
+    @JoinColumn(name = "ARTIST_ID")
+    private Artist artist;
 
     @Column(name = "GENRE")
     private String genre;
