@@ -15,8 +15,10 @@ import { toast } from "react-toastify";
 import { login, getuser, signup, addcart, updateuser } from "../constant/routes";
 import Cookies from "universal-cookie";
 import { getCartbyUser } from "./cartAction";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 
-// user login
 export const userLogin = (email, password) => async (dispatch) => {
   const cookies = new Cookies();
   // initialise login process
@@ -24,95 +26,58 @@ export const userLogin = (email, password) => async (dispatch) => {
     type: USER_LOGIN_REQUEST,
   });
 
-  // login request
-  const loginConfig = {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
-  const response = await axios
-    .post(
-      login,
-      {
-        email,
-        password,
-      },
-      loginConfig
-    )
-    .then((res) => res.data)
-    .catch((error) => error.response.data.error);
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
 
-  if (response.success === true) {
-    // store tokken
+    // store token
     dispatch({
       type: USER_LOGIN_SUCCESS,
-      payload: response.authtokken,
+      payload: userCredential.user.getIdToken(),
     });
 
-    // storing auth tokken in cookies
-    cookies.set("tkn", response.authtokken);
+    // storing auth token in cookies
+    cookies.set("tkn", userCredential.user.getIdToken());
 
     // detail request
-    const getuserConfig = {
-      headers: {
-        "auth-token": response.authtokken,
-        "Content-Type": "application/json",
-      },
-    };
-    const user = await axios
-      .get(getuser, getuserConfig)
-      .then((res) => res.data)
-      .catch((error) => error.response.data.error);
+    const user = userCredential.user;
 
-    if (user._id) {
+    if (user.uid) {
       // store user info
       dispatch({
         type: USER_DETAIL_SUCCESS,
         payload: {
-          // id: user._id,
-          name: user.name,
+          name: user.displayName,
           email: user.email,
-          phoneNumber: user.phoneNumber,
-          secondaryPhoneNumber: user.secondaryPhoneNumber,
-          address: user.address,
-          house_flat_no: user.house_flat_no,
-          city: user.city,
-          state: user.state,
-          landmark: user.landmark,
-          pincode: user.pincode
+          // Add other user details as needed
         },
       });
 
       // storing user id in cookies
-      cookies.set("ui", user._id);
+      cookies.set("ui", user.uid);
       localStorage.setItem("userEmail", user.email);
-      localStorage.setItem("userName", user.name);
+      localStorage.setItem("userName", user.displayName);
 
-      axios.post(
-        addcart,
-        {
-          cart: [],
-          userId: user._id,
-        },
-        getuserConfig
-      );
       dispatch(getCartbyUser("getCartbyUser"))
-      toast.success(`Welcome ${user.name}`);
+    //  toast.success(`Welcome ${user.displayName}`);
     } else {
       dispatch({
         type: USER_DETAIL_FAIL,
-        payload: user,
+        payload: "Failed to retrieve user details",
       });
-      toast.error(user);
+      toast.error("Failed to retrieve user details");
     }
-  } else {
+  } catch (error) {
     dispatch({
       type: USER_LOGIN_FAIL,
-      payload: response,
+      payload: error.message,
     });
-    toast.error(response);
+    toast.error(error.message);
+    console.log(error);
   }
 };
+
+
+/** 
 
 // get user info
 export const getUserInfo = () => async (dispatch) => {
@@ -149,6 +114,7 @@ export const getUserInfo = () => async (dispatch) => {
     });
   }
 }
+*/
 
 // user sign Up
 export const userSignup = (userInfo) => async (dispatch) => {
@@ -156,47 +122,50 @@ export const userSignup = (userInfo) => async (dispatch) => {
     type: USER_SIGNUP_REQUEST,
   });
 
-  // signUp request config
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
-  // sending request
-  const response = await axios
-    .post(signup, userInfo, config)
-    .then((res) => res)
-    .catch((error) => error.response);
+  try {
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      userInfo.email,
+      userInfo.password
+    );
 
-  if (response.status === 200) {
     // store user info
     dispatch({
       type: USER_SIGNUP_SUCCESS,
     });
     toast.success("Account created.");
-  } else {
+    console.log(userCredential);
+  } catch (error) {
     dispatch({
       type: USER_SIGNUP_FAIL,
-      payload: response.data.error,
+      payload: error.message,
     });
-    toast.error(response);
+    toast.error(error.message);
+    console.log(error);
   }
 };
 
 // user Logout
+
 export const userLogout = () => (dispatch) => {
   const cookies = new Cookies();
-  dispatch({
-    type: USER_LOGOUT,
-  });
-  cookies.remove("tkn");
+  signOut(auth)
+    .then(() => {
+      dispatch({
+        type: USER_LOGOUT,
+      });
+      cookies.remove("tkn");
   cookies.remove("ui");
   localStorage.removeItem("userEmail");
   localStorage.removeItem("userName");
   toast.success("Logged out !");
+      console.log("sign out successful");
+    })
+    .catch((error) => console.log(error));
 };
 
 // user update
+/** 
 export const userUpdateInfo = (data) => async(dispatch) => {
   // fetching user data
   dispatch({
@@ -243,3 +212,4 @@ export const userUpdateInfo = (data) => async(dispatch) => {
     });
   }
 };
+*/
