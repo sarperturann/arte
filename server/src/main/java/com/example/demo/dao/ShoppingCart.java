@@ -11,7 +11,7 @@ public class ShoppingCart {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CART_SEQUENCE")
     @Id
     private Long id;
-    private String userId;
+    private Long userId;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private long[] artworks;
