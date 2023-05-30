@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './ShopItems.css';
 import { useSelector } from 'react-redux';
-import { Product, RingLoader } from './index';
+import { Product } from './index';
 import { Button } from '@mui/material';
 
 const ShopItems = () => {
@@ -30,16 +30,13 @@ const ShopItems = () => {
         filterArray();
       }
     }
-    if (window.history.state.usr && window.history.state.usr.category !== null) {
-      setCatOption(window.history.state.usr.category);
-      window.history.state.usr = null;
-    }
+    
   }, [catOption, products]);
 
   return (
-    <>
+    <> <span>WARWARRRR</span>
       {products !== null ? (
-        <>
+        <> <span>WARWARRRR2</span>
           <nav className='shopItemNav'>
             <div className='leftNav'>
               <span>
@@ -51,6 +48,7 @@ const ShopItems = () => {
                   } of ${filteredProduct.length}
                   products`}
               </span>
+              <span>WARWARRRR</span>
               {/* <span>Filter +</span>
                 <span>
                   <BsFillGrid3X3GapFill />
@@ -67,7 +65,7 @@ const ShopItems = () => {
         ''
       )}
       {products === null ? (
-        <RingLoader />
+        <div/>
       ) : totalProduct >= 43 ? (
         ''
       ) : (
