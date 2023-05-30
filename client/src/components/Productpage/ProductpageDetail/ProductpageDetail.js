@@ -77,33 +77,6 @@ const ProductpageDetail = ({
         <div className="setQuantityAndPrice">
             {cartedList.find((item) => item.id === product.id) === undefined ? (
                 <div className="setQuantity">
-                    {/* set qunatity */}
-                    <span>
-                        <button
-                            onClick={() =>
-                                product.quanitity > 1
-                                    ? setProduct({
-                                          ...product,
-                                          quanitity: product.quanitity - 1,
-                                      })
-                                    : ""
-                            }
-                        >
-                            -
-                        </button>
-                        <input
-                            type="number"
-                            onChange={(e) => handleChange(e)}
-                            value={qnt}
-                        />
-                        <button
-                            onClick={() =>
-                                setProduct({ ...product, quanitity: product.quanitity + 1 })
-                            }
-                        >
-                            +
-                        </button>
-                    </span>
                     {/* add to cart button */}
                     <span className="cartButton" onClick={() => cartHandler()} style={{ background: "#008000", color: "#fff", padding: "5px 10px", borderRadius: "5px", cursor: "pointer", marginLeft: "10px" }}>
                         ADD TO CART
