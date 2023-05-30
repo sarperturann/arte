@@ -7,7 +7,7 @@ import {
   AiFillHome,
   AiOutlineShoppingCart,
 } from "react-icons/ai";
-import logo from '../../img/logo/whiteEway@4x.png'
+
 import './Navbar.css'
 import { useSelector } from "react-redux";
 import Cookies from 'universal-cookie'
@@ -35,7 +35,7 @@ const Navbar = () => {
   return (
     <>
       <nav className='navbar'>
-        <img id="navLogo" src={logo} alt="logo" />
+        <span className="arte" style={{ color: 'white', fontSize: '36px' }}>Arte</span>
         <div className="optionsBox">
           <ul className='navbarOptions'>
             {menu.map((item, index) =>

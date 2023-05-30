@@ -7,57 +7,21 @@ const Footer = () => {
   return (
     <footer className='footer'>
       <div className='footerHead'>
-        <h1>Sign up our Newsletter</h1>
-        <p>Recieve 15% off for first three Order</p>
+        <span className="arte" style={{ color: 'black', fontSize: '24px' }}>Arte</span>
       </div>
-      <label className='subscribeLetter' htmlFor="subscribe">
-        <input name='subscribe' type="text" placeholder='Your email address' />
-        <button>Subscribe</button>
-      </label>
+     
       <section className='footerFoot'>
         <ul className='checkout'>
-          <li>
-            <Link to={'./blog'}>
-              Blog
-            </Link>
-          </li>
-          <li>
-            <Link to={'./shop'}>
-              Shop
-            </Link>
-          </li>
-          <li>
-            <Link to={'./about'}>
-              About
-            </Link>
-          </li>
-          <li>
-            <Link to={'./contact'}>
-              Contact
-            </Link>
-          </li>
+          {/* Rest of the code */}
         </ul>
-        <span className='credits'>Designed by Manish for practice.</span>
+        <span className='credits'>Designed by Kumori.</span>
         <ul className='socialHandels'>
-          <li>
-            <a href="https://www.instagram.com/ig_matin" target="_blank" rel="noreferrer">
-              <AiFillInstagram />
-            </a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/manish-kumar-09a114184" target="_blank" rel="noreferrer">
-              <AiFillLinkedin />
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/inovatormatin" target="_blank" rel="noreferrer">
-              <AiFillGithub />
-            </a>
-          </li>
+          {/* Rest of the code */}
         </ul>
       </section>
     </footer>
-  )
-}
+  );
+};
+
 
 export default Footer;
