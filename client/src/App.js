@@ -1,65 +1,80 @@
-import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import rootReducer from './reducers';
-import SignIn from './components/auth/SignIn';
-import SignUp from './components/auth/SignUp';
-import Shop from './pages/Shop';
-import AuthDetails from './components/AuthDetails';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from './firebase';
-
-const store = createStore(rootReducer);
+import React, { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import {
+  Home,
+  Shop,
+  Blog,
+  Blogpage,
+  Productpage,
+  MyCart,
+  Myorders,
+  PlaceOrder,
+  SearchPage,
+  Profile,
+  About,
+  Contact,
+} from "./pages";
+import { Navbar, Footer, Toast, UnderDev, BottomNavigationbar } from "./components";
+import { useDispatch } from "react-redux";
+import { getallProducts } from "./actions/productActions";
+import Cookies from 'universal-cookie'
 
 const App = () => {
-  const [showSignUp, setShowSignUp] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Track user login state
-  const [authUser, setAuthUser] = useState(null);
+  const cookies = new Cookies()
+  const dispatch = useDispatch();
+  // Online state
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
+  let tkn = cookies.get('tkn');
+  useEffect(() => {
+    // Update network status
+    const handleStatusChange = () => {
+      setIsOnline(navigator.onLine);
+    };
+
+    // Listen to the online status
+    window.addEventListener("online", handleStatusChange);
+
+    // Listen to the offline status
+    window.addEventListener("offline", handleStatusChange);
+
+    if (tkn === undefined) {
+      window.localStorage.clear();
+    }
+
+    // Specify how to clean up after this effect for performance improvment
+    return () => {
+      window.removeEventListener("online", handleStatusChange);
+      window.removeEventListener("offline", handleStatusChange);
+    };
+  }, [isOnline]); // eslint-disable-line
 
   useEffect(() => {
-    const listen = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setAuthUser(user);
-        setIsLoggedIn(true);
-      } else {
-        setAuthUser(null);
-        setIsLoggedIn(false);
-      }
-    });
-
-    return () => {
-      listen();
-    };
-  }, []);
-
-  const toggleSignUp = () => {
-    setShowSignUp(!showSignUp);
-  };
-
-  const handleSignIn = () => {
-    // Perform sign-in logic here
-    // Set isLoggedIn to true if sign-in is successful
-    setIsLoggedIn(true);
-  };
-
+    dispatch(getallProducts());
+  }, []); // eslint-disable-line
   return (
-    <Provider store={store}>
-      <Router>
-        <div>
-          <Routes>
-            <Route
-              path="/"
-              element={<SignIn toggleSignUp={toggleSignUp} handleSignIn={handleSignIn} />}
-            />
-            <Route path="/signup" element={<SignUp toggleSignUp={toggleSignUp} />} />
-            {isLoggedIn && <Route path="/shop" element={<Shop />} />}
-          </Routes>
-          <AuthDetails setIsLoggedIn={setIsLoggedIn} />
-        </div>
-        <Link to="/signup">Don't have an account? Sign Up</Link>
-      </Router>
-    </Provider>
+    <>
+      <div className="displayBody">
+        <Navbar />
+        <BottomNavigationbar />
+        <Toast />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/mycart" element={<MyCart />} />
+          <Route path="/myorders" element={<Myorders />} />
+          <Route path="/placeorder" element={<PlaceOrder />} />
+          <Route path="/myprofile" element={<Profile />} />
+          <Route exact path="/blog/:id" element={<Blogpage />} />
+          <Route exact path="/shop/:id" element={<Productpage />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/search/:keyword" element={<SearchPage />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+        <Footer />
+      </div>
+      <UnderDev />
+    </>
   );
 };
 

@@ -1,13 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500&display=swap');
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: 'Work Sans', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --lightGreen: #61ce70;
+  --lightGreen2: #45bd52;
+  --skinny: #f7f7f7;
+  --skinny2: #f8f8f2;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: black;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--lightGreen);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--lightGreen2);
+}
+
+a{
+  text-decoration: none;
+  font-weight: 400;
+  color: black;
+}
+
+li{
+  list-style: none;
+}
+
+ul{
+  padding: 0;
+  margin: 0;
+}
+
+button{
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: 'Work Sans', sans-serif;
+}
+input, textarea{
+  font-family: 'Work Sans', sans-serif;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-button-prev, .swiper-button-next{
+  color: black!important;
+}
+.swiper-button-prev{
+  left: 25px !important;
+} 
+.swiper-button-next{
+  right: 25px !important;
+}
+
+.displayBody{
+  display: block;
+}
+.hideBody{
+  display: none;
+}
+.container{
+  max-width: 1240px;
+  margin: auto;
+}
+
+@media only screen and (max-width: 767px) {
+  .Toastify__toast{
+    width: 95% !important;
+    margin: auto !important;
+  }
+  .Toastify__toast-body{
+    font-size: .8rem;
+  }
+  .Toastify__toast-container{
+    width: 20%;
+  }
 }

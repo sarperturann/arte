@@ -1,0 +1,209 @@
+.placeOrderPage {
+    width: 1240px;
+    margin: auto;
+    padding: 25px 5px;
+}
+
+.placeOrderPageInfo {
+    display: flex;
+    gap: 3%;
+    justify-content: space-between;
+}
+
+.placeOrderPageInfo>.userInfo>div>.card {
+    background-color: #e7e7e7;
+    /* background-color: #eacaffae; */
+    border-radius: 10px;
+    padding: .5rem 1rem;
+    margin-bottom: 1rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.placeOrderPageInfo>.userInfo>div>.card h4 {
+    margin: .5rem 0;
+    color: #61ce70;
+}
+
+.placeOrderPageInfo>.userInfo>div>.card h4 button,
+.userItems button {
+    float: right;
+    color: white;
+    background-color: #61ce70;
+    font-size: .7rem;
+    padding: 0.2rem .5rem;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.placeOrderPageInfo>.userInfo>div>.card h4 button svg,
+.userItems button svg {
+    margin-left: 5px;
+}
+
+.placeOrderPageInfo>.userInfo {
+    width: 50%;
+}
+
+.placeOrderPageInfo>.userItems {
+    width: 100%;
+}
+
+.cardInfo {
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+}
+
+.cardInfo p {
+    margin: .5rem 0;
+    font-size: .9rem;
+    line-height: 1.3rem;
+}
+
+.cardInfo p {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.cardInfo svg {
+    margin: .7rem .6rem 0 0;
+}
+
+.confirmOrder {
+    text-align: right;
+}
+
+.confirmOrder button {
+    background-color: var(--lightGreen) !important;
+    color: white !important;
+    padding: .5rem 1rem !important;
+    border-radius: 10px !important;
+}
+
+.orderProductContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.orderProduct {
+    max-width: 180px;
+    padding: 5px;
+    background-color: #e5e5e5ed;
+    border-radius: 20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.orderProduct img {
+    width: 180px;
+    border-radius: 20px;
+}
+
+.orderProduct h4 {
+    margin: .5rem .5rem;
+    color: #61ce70;
+}
+
+.orderProduct p {
+    font-size: .9rem;
+    font-weight: 500;
+    margin: .2rem 0.5rem;
+}
+
+.orderProduct p span {
+    float: right;
+}
+
+/* first break point */
+@media only screen and (max-width: 1270px) {
+    .placeOrderPage {
+        max-width: 850px;
+        margin: auto;
+    }
+
+    .placeOrderPageInfo {
+        flex-direction: column;
+    }
+
+    .orderProductContainer {
+        grid-gap: 20px;
+    }
+
+    .userInfoContainer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+    }
+
+    .placeOrderPageInfo>.userInfo {
+        width: 100%;
+    }
+
+    .placeOrderPageInfo>.userInfo>div>.card {
+        margin-bottom: 0;
+    }
+}
+
+/* Seond break point */
+@media only screen and (max-width: 920px) {
+    .orderProductContainer {
+        grid-gap: 10px;
+    }
+    .placeOrderPage{
+        max-width: 730px;
+    }
+    .orderProduct{
+        max-width: 165px;
+    }
+    .orderProduct img{
+        width: 162px;
+    }
+    .orderProduct h4{
+        font-size: 15px;
+    }
+    .orderProduct p{
+        font-size: .8rem;
+    }
+}
+
+/* Third break point */
+@media only screen and (max-width: 768px) {
+    .userInfoContainer{
+        grid-template-columns: auto;
+        grid-gap: 10px;
+        margin-bottom: 10px;
+    }
+    .orderProductContainer{
+        grid-template-columns: auto auto auto;
+        place-items: center;
+    }
+    .placeOrderPage{
+        max-width: 96%;
+        margin: 0 auto;
+    }
+    .placeOrderPage{
+        padding: 5px;
+    }
+}
+
+/* Third break point */
+@media only screen and (max-width: 560px) {
+    .orderProductContainer{
+        grid-template-columns: auto auto;
+    }
+    .confirmOrder{
+        text-align: center;
+    }
+    .orderProduct img{
+        border-radius: 10px;
+    }
+}
+
+/* Fourth break point */
+@media only screen and (max-width: 375px) {
+    .orderProduct img{
+        width: 140px;
+    }
+}

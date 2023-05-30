@@ -1,0 +1,159 @@
+.navbar {
+  background-color: black;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  padding: 1rem 3rem;
+  position: relative;
+}
+
+.navbarOptions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem 3rem;
+  margin: 0;
+}
+
+.navbarOptions li>a {
+  margin-right: 1.6rem;
+  cursor: pointer;
+  color: white;
+  transition: all ease-in-out 300ms;
+  display: flex;
+  align-items: center;
+}
+
+.navbarOptions li>a:hover {
+  color: var(--lightGreen);
+}
+
+.optionsBox {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#navLogo {
+  width: 100px;
+  height: 35px;
+  cursor: pointer;
+}
+
+.extraOption {
+  display: flex;
+  align-items: center;
+}
+
+.extraOption svg {
+  color: white;
+  font-size: 1.5rem;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.profileDroper {
+  z-index: 1;
+}
+
+.profileDroper button {
+  background-color: transparent;
+  min-width: auto;
+  padding: 0;
+}
+
+.profileDroper button:hover {
+  background-color: transparent !important;
+}
+
+.menues-nav svg {
+  color: rgba(27, 27, 27, 0.852);
+  padding: 0;
+  margin: 0 9px 0 0;
+  width: max-content;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.menues-nav li {
+  color: rgba(27, 27, 27, 0.852);
+  font-weight: 500;
+}
+
+.userinfo {
+  padding: 0rem 1rem 0.8rem 1rem;
+  background-color: var(--lightGreen2);
+  border-radius: inherit;
+}
+
+.userinfo p {
+  margin: 0;
+  padding: 0.5rem 0 0.2rem 0;
+  font-weight: 400;
+  color: white;
+}
+.dropperItemsMenuHelp{
+  display: none !important;
+}
+
+/* first break point */
+@media only screen and (max-width: 931px) {
+  .navbar {
+    padding: 0.3rem 2rem;
+  }
+
+  .navbarOptions {
+    padding: 0.5rem 2rem;
+    font-size: 0.8rem;
+  }
+
+  #navLogo {
+    width: 55px;
+    height: 20px;
+  }
+
+  .extraOption svg {
+    font-size: 1rem;
+  }
+
+  .css-1rrgvs4-MuiInputBase-root {
+    font-size: .8rem !important;
+  }
+
+  .css-1rrgvs4-MuiInputBase-root .MuiInputBase-input {
+    padding: 4px 4px 4px 32px !important;
+  }
+
+  .navbarOptions li>a {
+    margin-right: 1rem;
+  }
+}
+
+/* second break point */
+@media only screen and (max-width: 768px) {
+  .navbar {
+    width: -webkit-fill-available;
+    justify-content: space-between;
+  }
+
+  .optionsBox{
+    width: auto;
+  }
+
+  .navbarOptions {
+    display: none;
+  }
+
+  .extraOption li:nth-child(1),
+  .extraOption li:nth-child(2) {
+    display: none;
+  }
+
+  .extraOption li button {
+    box-shadow: none;
+  }
+  .dropperItemsMenu, .dropperItemsMenuHelp{
+    display: flex !important;
+  }
+}

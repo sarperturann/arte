@@ -1,0 +1,117 @@
+.categories {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  padding: 20px;
+}
+.Card {
+  cursor: pointer;
+  position: relative;
+  aspect-ratio: 1.85/1;
+  overflow: hidden;
+}
+.CardImg {
+  width: 100%;
+  transition: all ease-in-out 920ms;
+}
+.Card:hover .CardImg {
+  transform: scale(1.05);
+}
+.Cardtext {
+  position: absolute;
+  bottom: 8%;
+  left: 5%;
+}
+.Cardtext h3 {
+  font-size: 1.3rem;
+  margin: 0 0 1rem 0;
+  font-weight: 500;
+}
+.Cardtext button {
+  background-color: transparent;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0 0 0.5rem 0;
+  border-bottom: solid black 1.2px;
+}
+
+/* First break point */
+@media only screen and (max-width: 1025px) {
+  .categories {
+    grid-gap: 10px;
+    padding: 10px;
+  }
+  .Cardtext h3 {
+    font-size: 1rem;
+    margin: 0 0 0.5rem 0;
+  }
+  .Cardtext button {
+    font-size: 0.6rem;
+    padding: 0 0 0.3rem 0;
+  }
+}
+
+/* First break point */
+@media only screen and (max-width: 768px) {
+  .categories {
+    grid-template-columns: 1fr 1fr;
+  }
+  .categories div:nth-child(3) {
+    background-color: #ffeaed;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: end;
+    height: 200px;
+    width: 100%;
+  }
+  .categories div:nth-child(3) > .CardImg {
+    height: 100%;
+    width: auto;
+  }
+  .Cardtext {
+    text-align: start;
+  }
+}
+
+/* Second break point */
+@media only screen and (max-width: 468px) {
+  .categories {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+  .Card {
+    width: 100%;
+    text-align: end;
+    height: 150px;
+  }
+  .Card:nth-child(1){
+    background-color: #f3f3f3;
+  }
+  .Card:nth-child(2){
+    background-color: #e7e5da;
+  }
+  .categories div:nth-child(1) {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    width: 100%;
+  }
+  .categories div:nth-child(2) {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    width: 100%;
+  }
+  .categories div:nth-child(3) {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+  .categories div:nth-child(3), .Card {
+    height: 150px;
+  }
+  .categories div:nth-child(1) > .CardImg,
+  .categories div:nth-child(2) > .CardImg {
+    height: 100%;
+    width: auto;
+  }
+}

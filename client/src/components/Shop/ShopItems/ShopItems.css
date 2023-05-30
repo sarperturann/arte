@@ -1,0 +1,84 @@
+.itemgallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+  padding: 20px;
+  max-width: 1240px;
+  margin: auto;
+}
+.shopItemNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  max-width: 1240px;
+  margin: auto;
+  margin-top: 1rem;
+}
+.rightNav span {
+  padding-left: 10px;
+  cursor: pointer;
+}
+.leftNav span {
+  padding-right: 10px;
+}
+.loadmore {
+  width: max-content;
+  margin: 1rem auto;
+}
+.loadmore button {
+  background-color: var(--lightGreen2);
+  color: white;
+  padding: 0.5rem 2rem;
+  border-radius: 5px;
+  transition: 200ms ease-in-out;
+}
+.loadmore button:hover {
+  background-color: var(--lightGreen);
+}
+
+/* first break point */
+@media only screen and (max-width: 1020px) {
+  .loadmore button {
+    padding: 0.4rem 1rem;
+    font-size: 0.7rem;
+  }
+}
+
+/* Second break point */
+@media only screen and (max-width: 932px) {
+  .itemgallery{
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 720px;
+  }
+}
+
+/* Third break point */
+@media only screen and (max-width: 530px) {
+  .itemgallery{
+    grid-gap: 10px;
+  }
+  .leftNav span{
+    padding-right: 0;
+    font-size: 0.8rem;
+  }
+  .shopItemNav button, .loadmore button{
+    font-size: .5rem;
+    padding: .2rem .5rem;
+  }
+}
+
+/* Fourth break point */
+@media only screen and (max-width: 470px) {
+  .itemgallery{
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+  }
+}
+
+/* Fifth break point */
+@media only screen and (max-width: 375px) {
+  .leftNav span{
+    font-size: 0.7rem;
+  }
+}

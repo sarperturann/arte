@@ -1,0 +1,66 @@
+.searchpage {
+  max-width: 1240px;
+  margin: auto;
+}
+.searchpage .results {
+  min-height: 140px;
+  margin: 10px auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #e8e6e6;
+  border-radius: 5px;
+}
+.searchpage h1 {
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.searchpage hr {
+  width: 50px;
+  margin-top: 5px;
+  margin-left: 0px;
+  height: 4px;
+  background-color: var(--lightGreen2);
+  border: none;
+}
+.blogsSectionsearchpage > div {
+  margin: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.blogRes > div{
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+.productRes, .blogRes{
+  margin-top: 15px;
+}
+.blogsSectionsearchpage > div > .css-wuxkef-MuiPaper-root-MuiCard-root{
+  margin-bottom: 20px;
+}
+
+/* first break point */
+@media only screen and (max-width: 1220px) {
+  .blogsSectionsearchpage > div > .css-wuxkef-MuiPaper-root-MuiCard-root{
+    max-width: 340px;
+  }
+}
+
+/* second break point */
+@media only screen and (max-width: 1077px) {
+  .blogsSectionsearchpage > div > .css-wuxkef-MuiPaper-root-MuiCard-root{
+    max-width: 300px;
+  }
+}
+
+/* third break point */
+@media only screen and (max-width: 963px) {
+  .blogsSectionsearchpage > div > .css-wuxkef-MuiPaper-root-MuiCard-root{
+    max-width: 350px;
+  }
+}

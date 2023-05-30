@@ -1,0 +1,17 @@
+#customized-dialog-title{
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--lightGreen);
+}
+.orderDetails{
+    min-width: 400px;
+}
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper{
+    border-radius: 20px;
+}
+.orderDetails1 span,
+.orderDetails2 span,
+.orderDetails3 span{
+    float: right;
+    text-align: right;
+}

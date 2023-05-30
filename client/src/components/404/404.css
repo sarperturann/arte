@@ -1,0 +1,26 @@
+.underDev {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+.underDev img {
+  width: 40%;
+}
+.underDev p {
+  width: 450px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 470px) {
+  .underDev h1 {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+  }
+  .underDev p {
+    margin: 0.4rem 0;
+    font-size: 0.8rem;
+    width: 80%;
+  }
+}

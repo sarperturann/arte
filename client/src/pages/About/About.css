@@ -1,0 +1,86 @@
+.aboutTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://res.cloudinary.com/inovatormatin/image/upload/v1653646910/eway/banner/shop-title_lcffhw.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 200px;
+}
+.aboutTitle h2 {
+  font-size: 3rem;
+  margin: 0.8rem;
+  font-weight: 500;
+}
+.aboutContent {
+  display: grid;
+  grid-template-columns: 1.7fr 2fr;
+  grid-gap: 40px;
+  max-width: 1240px;
+  margin: 3rem auto;
+  padding: 40px 50px;
+}
+.acrs img,
+.acls img {
+  width: 100%;
+}
+.acrs img {
+  margin-top: 1rem;
+}
+.acls img {
+  margin-bottom: 2rem;
+}
+.aboutContent h3 {
+  margin: 0 0 10px 0;
+  font-size: 2rem;
+  font-weight: 500;
+}
+.aboutContent p {
+  margin: 5px 0 20px 0;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.needToKnow {
+  min-height: 400px;
+  width: 90%;
+  margin: 0 auto 3rem auto;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url("https://res.cloudinary.com/inovatormatin/image/upload/v1653646902/eway/other/about3_mhda5b.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.needToKnow h1 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.needToKnow button {
+  background-color: black;
+  font-weight: 500;
+  font-size: 1.2rem;
+  padding: 0.8rem 1rem;
+  width: max-content;
+  border-radius: 30px;
+}
+
+/* first break point */
+@media only screen and (max-width: 1000px) {
+    .aboutContent{
+        margin: auto;
+    }
+  .aboutContent h3 {
+    margin: 10px 0 0 0;
+      font-size: 1.1rem;
+  }
+  .aboutContent p {
+    font-size: 0.8rem;
+  }
+  .needToKnow a{
+    color: white !important;
+  }
+}

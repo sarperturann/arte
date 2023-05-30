@@ -1,0 +1,116 @@
+.blogTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://res.cloudinary.com/inovatormatin/image/upload/v1653646910/eway/banner/blog-title_mcvt8b.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 300px;
+}
+.blogTitle h2 {
+  font-size: 3rem;
+  margin: 0.8rem;
+  font-weight: 500;
+}
+.blogArea {
+  min-height: 50vh;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-gap: 3rem;
+  padding: 20px;
+  max-width: 1240px;
+  margin: 2rem auto;
+}
+.allBlogs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  padding: 0 1rem;
+}
+.allBlogs .loader {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.searchBar {
+  display: flex;
+  padding: 5px;
+  border: solid 1px #beb9b9;
+  justify-content: center;
+  align-items: center;
+}
+.searchBar input {
+  font-size: 1.2rem;
+  border: none;
+  outline: none;
+  width: -webkit-fill-available;
+  padding: 5px;
+}
+.searchBar button {
+  padding: 0;
+  cursor: pointer;
+}
+.searchBar svg {
+  border: solid 1px #beb9b9;
+  aspect-ratio: 1/1;
+  font-size: 1.2rem;
+  padding: 5px;
+  background-color: aliceblue;
+}
+.latestBlogs h4 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: 0 0 1rem 0;
+}
+
+/* first break point */
+@media only screen and (max-width: 1020px) {
+  .blogArea {
+    grid-gap: 0rem;
+  }
+}
+/* second break point */
+@media only screen and (max-width: 1000px) {
+  .blogArea {
+    max-width: 80%;
+    grid-gap: 2rem;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+  }
+  .latestBlogs {
+    padding: 0 1rem;
+  }
+}
+
+/* third break point */
+@media only screen and (max-width: 932px) {
+  .blogTitle {
+    height: 130px;
+  }
+  .blogTitle h2 {
+    font-size: 2rem;
+    margin: 0.5rem;
+  }
+  .blogTitle p {
+    margin: 0.5rem;
+  }
+}
+
+/* fourth break point */
+@media only screen and (max-width: 766px) {
+  .blogArea {
+    max-width: 100%;
+  }
+}
+
+/* fifth break point */
+@media only screen and (max-width: 650px) {
+  .allBlogs {
+    grid-template-columns: 1fr;
+  }
+  .blogArea {
+    max-width: 390px;
+    margin: auto;
+  }
+}

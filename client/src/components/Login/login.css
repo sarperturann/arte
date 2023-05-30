@@ -1,0 +1,108 @@
+.loginBox {
+  position: absolute;
+  top: 0;
+  width: -webkit-fill-available;
+  height: 100vh;
+  z-index: 3;
+  background-color: var(--skinny2);
+  padding: 2rem 3rem;
+}
+.loginBox header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.loginBox header svg {
+  cursor: pointer;
+  transition: all ease-in-out 300ms;
+}
+.loginBox header svg:hover {
+  transform: rotate(90deg);
+}
+.form,
+.form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form h4 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 0 0 2rem 0;
+}
+.form {
+  width: 35rem;
+  margin: auto;
+}
+.form form {
+  width: 100%;
+}
+.form form input {
+  width: -webkit-fill-available;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border-bottom: solid 1px #c9c6c6;
+  padding: 0 0 0.5rem 0;
+  margin-bottom: 0.8rem;
+}
+.form button {
+  width: max-content;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin: 1rem 0;
+  background-color: var(--lightGreen);
+  color: white;
+}
+.form form button {
+  width: -webkit-fill-available;
+  background-color: black;
+  color: white;
+}
+.form section {
+  width: 100%;
+  display: flex;
+  gap: 3%;
+}
+
+.formNote {
+  width: -webkit-fill-available;
+  margin: 0 0 1rem 0;
+  font-weight: 500;
+  font-size: 0.8rem;
+  color: red;
+}
+
+/* first break point */
+@media only screen and (max-width: 630px) {
+  .form {
+    width: 100%;
+  }
+  .form form input {
+    padding-bottom: .4rem;
+  }
+  .form button {
+    margin: .3rem 0;
+  }
+  .form h4 {
+    margin-bottom: 1rem;
+  }
+  .form section {
+    display: block;
+  }
+  .loginBox{
+    padding: 1rem 2rem;
+  }
+  .loginwala h4{
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+  .loginwala{
+    margin-bottom: 2rem;
+  }
+  .loginBox button{
+    border-radius: 10px;
+  }
+}

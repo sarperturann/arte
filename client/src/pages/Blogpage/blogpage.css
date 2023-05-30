@@ -1,0 +1,56 @@
+.blogPageTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://res.cloudinary.com/inovatormatin/image/upload/v1653646910/eway/banner/shop-title_lcffhw.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 200px;
+}
+.blog-content {
+  width: 60%;
+  max-width: 900px;
+  margin: 2rem auto;
+}
+.blogImage {
+  width: 100%;
+  aspect-ratio: 2/1.1;
+}
+.blog-content p {
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+/* first break point */
+@media only screen and (max-width: 1000px) {
+  .blog-content {
+    width: auto;
+    max-width: 80%;
+  }
+}
+
+/* second break point */
+@media only screen and (max-width: 932px) {
+  .blogPageTitle {
+    height: 130px;
+  }
+  .blogPageTitle h2 {
+    font-size: 1rem;
+    margin: 0.5rem;
+  }
+  .blogPageTitle p {
+    margin: 0.3rem auto;
+    max-width: 80%;
+    text-align: center;
+  }
+}
+
+/* third break point */
+@media only screen and (max-width: 450px) {
+  .blog-content p {
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,116 @@
+.contactTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://res.cloudinary.com/inovatormatin/image/upload/v1653646910/eway/banner/shop-title_lcffhw.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 200px;
+}
+.contactTitle h2 {
+  font-size: 3rem;
+  margin: 0.8rem;
+  font-weight: 500;
+}
+.contactContain {
+  max-width: 1200px;
+  width: 93%;
+  margin: 3rem auto 5rem auto;
+  display: flex;
+  justify-content: space-between;
+}
+.contactContain form input {
+  border: none;
+  outline: none;
+  font-size: 1.3rem;
+  padding: 1rem 0.5rem;
+  border-bottom: solid 1px rgb(204, 204, 204);
+  margin-bottom: 1.5rem;
+}
+.contactContain form textarea {
+  font-size: 1.3rem;
+  padding: 1rem 0.5rem;
+  border: none;
+  outline: none;
+  border-bottom: solid 1px rgb(204, 204, 204);
+  margin-bottom: 1.5rem;
+}
+.contactContain form input:focus,
+.contactContain form textarea:focus {
+  border-bottom: solid 1px black;
+}
+.contactContain form {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+.contactContain form button {
+  background-color: black;
+  color: white;
+  width: max-content;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  transition: all ease-in-out 400ms;
+}
+.contactContain form button:hover {
+  background-color: var(--lightGreen);
+}
+.map {
+  width: 38%;
+  aspect-ratio: 1/1;
+  border: none !important;
+}
+
+/* first break point */
+@media only screen and (max-width: 1240px) {
+  .contactContain form {
+    width: 50%;
+  }
+  .map {
+    width: 45%;
+  }
+}
+
+/* second break point */
+@media only screen and (max-width: 930px) {
+  .contactContain {
+    flex-direction: column-reverse;
+  }
+  .contactContain form,
+  .map {
+    width: 100%;
+  }
+  .map {
+    height: 250px;
+    margin-bottom: 1.5rem;
+  }
+  .contactContain form input,
+  .contactContain form textarea {
+    font-size: 1rem;
+  }
+}
+
+/* third break point */
+@media only screen and (max-width: 932px) {
+  .contactTitle {
+    height: 130px;
+  }
+  .contactTitle h2 {
+    font-size: 2rem;
+    margin: 0.5rem;
+  }
+}
+
+/* fourth break point */
+@media only screen and (max-width: 425px) {
+  .contactContain form button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 10px;
+  }
+  .contactContain{
+    margin: 1rem auto 1rem auto;
+  }
+}

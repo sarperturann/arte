@@ -1,0 +1,23 @@
+.miniCard{
+    width: 100%;
+    margin-bottom: 2rem;
+    display: flex;
+    cursor: pointer;
+    color: black;
+}
+.miniCard img{
+    width: 89px;
+    height: 60px;
+}
+.miniCard div{
+    padding: 0 1rem;
+}
+.miniCard div > h5{
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0 0 5px 0;
+}
+.miniCard div > span{
+    font-size: .8rem;
+    font-weight: 400;
+}

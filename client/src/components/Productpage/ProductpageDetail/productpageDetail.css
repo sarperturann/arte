@@ -1,0 +1,120 @@
+.productPageDetail {
+  padding: 5px 30px;
+  width: 100%;
+}
+.productPageDetail h1 {
+  font-size: 2rem;
+  margin: 1rem auto;
+  font-weight: 400;
+}
+.productPageDetail p {
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 300;
+}
+.setQuantityAndPrice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5rem auto 2rem auto;
+}
+.setQuantity .cartButton {
+  background-color: black;
+  color: white;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0.8rem 2rem;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: 200ms ease-in-out;
+}
+.setQuantity .cartButton:hover {
+  background-color: #363535fa;
+}
+.setQuantity input::-webkit-outer-spin-button,
+.setQuantity input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.setQuantity input,
+.setQuantity button {
+  text-align: center;
+  border: none;
+  outline: none;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  width: 40px;
+  cursor: pointer;
+  background-color: rgb(236, 236, 236);
+}
+.productPagePrice label {
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+.productPagePrice span {
+  font-weight: 400;
+  font-size: 1.9rem;
+}
+.tag {
+  background-color: var(--lightGreen);
+  color: white;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 2px 10px;
+  border-radius: 5px;
+  margin: 5px 5px 0 5px;
+}
+
+/* first break point */
+@media only screen and (max-width: 970px) {
+  .setQuantityAndPrice {
+    flex-direction: column;
+  }
+  .productPagePrice {
+    margin-top: 15px !important;
+  }
+}
+
+/* Second break point */
+@media only screen and (max-width: 768px) {
+  .productPageDetail {
+    width: 90%;
+    margin: auto;
+  }
+  .setQuantityAndPrice {
+    flex-direction: row;
+  }
+}
+
+/* Third break point */
+@media only screen and (max-width: 550px) {
+  .setQuantityAndPrice {
+    flex-direction: column;
+    margin: 3rem auto 2rem auto;
+  }
+  .productPageDetail {
+    width: 86%;
+  }
+}
+
+/* fourth break point */
+@media only screen and (max-width: 425px) {
+  .productPageDetail h1 {
+    font-size: 1.5rem;
+    margin: 0.5rem auto;
+  }
+  .productPageDetail p {
+    font-size: 1rem;
+  }
+  .setQuantity input,
+  .setQuantity button {
+    padding: 0.4rem 0rem;
+  }
+  .setQuantity .cartButton {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+  .setQuantityAndPrice{
+    margin: 2rem auto 1rem auto;
+  }
+}

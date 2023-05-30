@@ -1,0 +1,165 @@
+.banner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4.5/2;
+}
+.bannerImg {
+  position: absolute;
+}
+.offer {
+  position: absolute;
+  top: 28%;
+}
+.offer span {
+  color: var(--lightGreen2);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.offer h1,
+.offer p {
+  font-size: 3rem;
+  margin: 8px 0;
+}
+.offer p {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+.readMore {
+  background-color: var(--lightGreen2);
+  color: white;
+}
+.showMore {
+  background-color: transparent;
+  border: solid black 1px;
+  border-style: inset;
+}
+.offer div button {
+  font-size: 0.8rem;
+  padding: 0.5rem 1.2rem;
+  margin: 0 3px;
+}
+.leftSideOffer {
+  left: 19%;
+}
+.rightSideOffer {
+  right: 19%;
+}
+
+/* first break point */
+@media only screen and (max-width: 1300px) {
+  .leftSideOffer {
+    left: 12%;
+  }
+  .rightSideOffer {
+    right: 12%;
+  }
+  .offer h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* second break point */
+@media only screen and (max-width: 900px) {
+  .leftSideOffer {
+    left: 10%;
+  }
+  .rightSideOffer {
+    right: 10%;
+  }
+  .offer {
+    top: 21%;
+  }
+  .offer h1 {
+    font-size: 2rem;
+  }
+  .offer p {
+    font-size: 0.7rem;
+  }
+  .offer span {
+    font-size: 0.8rem;
+  }
+  .offer div button {
+    font-size: 0.6rem;
+    padding: 0.4rem 1rem;
+  }
+}
+
+/* third break point */
+@media only screen and (max-width: 700px) {
+  .swiper-button-next:after,
+  .swiper-rtl .swiper-button-prev:after,
+  .swiper-button-prev:after,
+  .swiper-rtl .swiper-button-next:after {
+    font-size: 20px !important;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: calc(var(--swiper-navigation-size) / 44 * 2) !important;
+  }
+  .swiper-button-next {
+    right: 15px !important;
+  }
+  .swiper-button-prev {
+    left: 15px !important;
+  }
+}
+
+/* third break point */
+@media only screen and (max-width: 650px) {
+  .offer h1 {
+    font-size: 1.2rem;
+  }
+  .offer span {
+    font-size: 0.6rem;
+  }
+  .offer p {
+    font-size: 0.5rem;
+    margin-bottom: 0.6rem;
+  }
+  .offer h1{
+    margin: 3px 0;
+  }
+  .offer div button {
+    font-size: 0.5rem;
+    padding: 0.4rem 0.6rem;
+  }
+  .leftSideOffer {
+    left: 15%;
+  }
+  .rightSideOffer {
+    right: 15%;
+  }
+}
+
+/* fourth break point */
+@media only screen and (max-width: 500px) {
+  .leftSideOffer {
+    left: 10%;
+  }
+  .rightSideOffer {
+    right: 10%;
+  }
+  .offer {
+    top: 13%;
+  }
+}
+
+/* fifth break point */
+@media only screen and (max-width: 400px) {
+  .offer span {
+    font-size: 0.4rem;
+  }
+  .offer h1 {
+    font-size: 0.8rem;
+  }
+  .offer p {
+    font-size: 0.4rem;
+    margin-top: .2rem;
+    margin-bottom: .2rem;
+  }
+  .offer div button {
+    font-size: 0.4rem;
+    padding: 0.3rem 0.4rem;
+  }
+}
