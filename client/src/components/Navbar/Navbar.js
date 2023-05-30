@@ -20,9 +20,6 @@ const Navbar = () => {
   const menu = [
     { url: '/', lName: `Home` },
     { url: '/shop', lName: 'Shop' },
-    { url: '/blog', lName: 'Blog' },
-    { url: '/about', lName: 'About us' },
-    { url: '/contact', lName: 'Contact' },
   ];
   const activeLi = {
     color: "#61ce70",
@@ -53,7 +50,6 @@ const Navbar = () => {
             )}
           </ul>
           <ul className="extraOption">
-            <li><Searchbar /></li>
             <li><Link to={"/mycart"} style={{display: "flex"}}><AiOutlineShoppingCart /></Link></li>
             <li onClick={() => {
               if (tkn !== undefined) {

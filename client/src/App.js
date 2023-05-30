@@ -19,6 +19,7 @@ import { useDispatch } from "react-redux";
 import { getallProducts } from "./actions/productActions";
 import Cookies from 'universal-cookie'
 import { getArtworkImages } from "./actions/artworkImageActions";
+import {getArtwork} from "./actions/artworkActions";
 
 const App = () => {
   const cookies = new Cookies()
@@ -52,6 +53,7 @@ const App = () => {
   useEffect(() => {
     dispatch(getallProducts());
     dispatch(getArtworkImages());
+    dispatch(getArtwork());
   }, []); // eslint-disable-line
   return (
     <>
@@ -62,16 +64,13 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
-          <Route path="/blog" element={<Blog />} />
           <Route path="/mycart" element={<MyCart />} />
           <Route path="/myorders" element={<Myorders />} />
           <Route path="/placeorder" element={<PlaceOrder />} />
           <Route path="/myprofile" element={<Profile />} />
           <Route exact path="/blog/:id" element={<Blogpage />} />
           <Route exact path="/shop/:id" element={<Productpage />} />
-          <Route path="/about" element={<About />} />
           <Route path="/search/:keyword" element={<SearchPage />} />
-          <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
       </div>

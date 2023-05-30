@@ -23,6 +23,7 @@ export const deleteblog = eway + 'blogs/deleteblog/'; // blog id required
 // product routes
 export const addproduct = eway + 'products/addblog';
 export const getallproducts = eway + 'products/getallproducts';
+export const getallartworks = gcloud + '/api/v1/artwork/get_all';
 export const getAllArtworkImages = gcloud + "/api/v1/images/get_all";
 export const updateproduct = eway + 'products/updateproduct/'; // product id required
 export const deleteproduct = eway + 'products/deleteproduct/'; // product id required

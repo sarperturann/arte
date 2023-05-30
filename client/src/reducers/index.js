@@ -11,6 +11,7 @@ import { getallBlogsReducer } from './blogReducers'
 import { getallProductsReducer } from './ProductReducers'
 import { getallOrdersReducer } from './orderReducers'
 import { getArtworkImagesReducer } from './artworkImageReducers'
+import {getArtworkReducer} from './artworkReducers'
 import { cartReducer } from './cartReducers'
 
 const rootReducer = combineReducers({
@@ -22,7 +23,8 @@ const rootReducer = combineReducers({
     searchKeyword: getSearchResult,
     sendMessage: sendMessageResult,
     userOrders: getallOrdersReducer,
-    getArtworkImages: getArtworkImagesReducer
+    getArtworkImages: getArtworkImagesReducer,
+    getArtwork: getArtworkReducer
 });
 
 export default rootReducer;
