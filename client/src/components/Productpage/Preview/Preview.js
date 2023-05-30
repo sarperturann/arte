@@ -19,7 +19,7 @@ const Preview = ({img1, img2}) => {
                     },
                     largeImage: {
                         src: productImage,
-                        width: 1550,
+                        width: 1850,
                         height: 1800
                     }
                 }} />

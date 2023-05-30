@@ -8,7 +8,7 @@
   position: relative;
   aspect-ratio: 2/2.2;
   cursor: pointer;
-  border-radius: 20px;
+  border-radius: 2px;
   overflow: hidden;
   /* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.13), 0 1px 1px 0 rgba(0, 0, 0, 0.11); */
   box-shadow: -6px -6px 8px rgba(255, 255, 255, 0.8), -2px -1px 8px #ffffff,
@@ -16,6 +16,12 @@
     -4px -4px 20px rgba(255, 255, 255, 0.8),
     1px 1px 5px rgba(185, 185, 185, 0.6), 4px 4px 15px rgba(0, 0, 0, 0.1);
 }
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* To scale the image instead of zooming */
+}
+
 .productImage img {
   position: absolute;
   left: 0;

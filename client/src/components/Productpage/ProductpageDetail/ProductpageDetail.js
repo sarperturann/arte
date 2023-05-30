@@ -7,7 +7,12 @@ import Cookies from "universal-cookie";
 
 const ProductpageDetail = ({
   name,
+  artistName,
+  artistBio,
   description,
+  genre,
+  yearCreated,
+  isSold,
   price,
   tags,
   id,
@@ -42,69 +47,82 @@ const ProductpageDetail = ({
       : toast.info("Item already added");
   };
   return (
-    <div className="productPageDetail">
-      <h1>{name}</h1>
-      {description.split("\n").map((par, index) => {
-        return <p key={index}>{par}</p>;
-      })}
+    <div className="productPageDetail" style={{ lineHeight: "1.6", color: "#333" }}>
+        <h1 style={{ marginBottom: "20px" }}>{name}</h1>
 
-      <div className="setQuantityAndPrice">
-        {cartedList.find((item) => item.id === product.id) === undefined ? (
-          <div className="setQuantity">
-            {/* set qunatity */}
-            <span>
-              <button
-                onClick={() =>
-                  product.quanitity > 1
-                    ? setProduct({
-                        ...product,
-                        quanitity: product.quanitity - 1,
-                      })
-                    : ""
-                }
-              >
-                -
-              </button>
-              <input
-                type="number"
-                onChange={(e) => handleChange(e)}
-                value={qnt}
-              />
-              <button
-                onClick={() =>
-                  setProduct({ ...product, quanitity: product.quanitity + 1 })
-                }
-              >
-                +
-              </button>
-            </span>
-            {/* add to cart button */}
-            <span className="cartButton" onClick={() => cartHandler()}>
-              ADD TO CART
-            </span>
-          </div>
-        ) : (
-          <div>
-            You already added this item in cart.
-            <p>Go to cart if you want to edit.</p>
-          </div>
-        )}
-        {/* price */}
-        <p className="productPagePrice">
-          <label>PRICE </label>
-          <span>{`$ ${price}.`}</span>
-        </p>
-      </div>
+        <div style={{ marginBottom: "20px" }}>
+            <h3 style={{ marginBottom: "10px" }}>Artist: {artistName}</h3>
+            <p>About the artist: {artistBio}</p>
+        </div>
 
-      <p style={{
-        display: "flex",
-        flexWrap: "wrap",
-        alignItems: "baseline"
-      }}>
-        
-      </p>
+        <table style={{ width: "100%", marginBottom: "20px", textAlign: "left" }}>
+            <tr style={{ borderBottom: "1px solid #ccc" }}>
+                <th style={{ fontWeight: "bold", paddingRight: "10px" }}>Description</th>
+                <td>{description}</td>
+            </tr>
+            <tr style={{ borderBottom: "1px solid #ccc" }}>
+                <th style={{ fontWeight: "bold", paddingRight: "10px" }}>Genre</th>
+                <td>{genre}</td>
+            </tr>
+            <tr style={{ borderBottom: "1px solid #ccc" }}>
+                <th style={{ fontWeight: "bold", paddingRight: "10px" }}>Year Created</th>
+                <td>{yearCreated}</td>
+            </tr>
+            <tr>
+                <th style={{ fontWeight: "bold", paddingRight: "10px" }}>Status</th>
+                <td>{isSold ? "This artwork has been sold." : "This artwork is available for purchase."}</td>
+            </tr>
+        </table>
+
+        <div className="setQuantityAndPrice">
+            {cartedList.find((item) => item.id === product.id) === undefined ? (
+                <div className="setQuantity">
+                    {/* set qunatity */}
+                    <span>
+                        <button
+                            onClick={() =>
+                                product.quanitity > 1
+                                    ? setProduct({
+                                          ...product,
+                                          quanitity: product.quanitity - 1,
+                                      })
+                                    : ""
+                            }
+                        >
+                            -
+                        </button>
+                        <input
+                            type="number"
+                            onChange={(e) => handleChange(e)}
+                            value={qnt}
+                        />
+                        <button
+                            onClick={() =>
+                                setProduct({ ...product, quanitity: product.quanitity + 1 })
+                            }
+                        >
+                            +
+                        </button>
+                    </span>
+                    {/* add to cart button */}
+                    <span className="cartButton" onClick={() => cartHandler()} style={{ background: "#008000", color: "#fff", padding: "5px 10px", borderRadius: "5px", cursor: "pointer", marginLeft: "10px" }}>
+                        ADD TO CART
+                    </span>
+                </div>
+            ) : (
+                <div>
+                    You already added this item in cart.
+                    <p>Go to cart if you want to edit.</p>
+                </div>
+            )}
+            {/* price */}
+            <p className="productPagePrice" style={{ marginTop: "20px", fontSize: "20px" }}>
+                <label>PRICE </label>
+                <span>{`$ ${price}.`}</span>
+            </p>
+        </div>
     </div>
-  );
+);
 };
 
 export default ProductpageDetail;

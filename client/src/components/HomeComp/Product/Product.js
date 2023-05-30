@@ -6,7 +6,7 @@ const Product = ({ product, artworkImage, artwork }) => {
   const { _id, name, price } = product;
   let artworkId, artworkTitle, price2,genre,dimensions,yearcreated,isSold;
   let artistId, artistName, artistYears,artistBio, artistGenre, artistNationality;
-
+console.log(artwork);
   if (artwork) {
     artworkId = artwork.id;
     artworkTitle = artwork.title;
@@ -29,7 +29,7 @@ const Product = ({ product, artworkImage, artwork }) => {
     <div className='productCard'>
       <Link to={`/shop/${_id.substr(1, 5)}`} state={{ product,artwork,artworkImage }}>
         <div className='productImage'>
-          <img src={artworkImage} alt="prdouct1a" />
+          <img className="product-img" src={artworkImage} alt="prdouct1a" />
         </div>
         <div className='productDetail'>
           <h5>{artworkTitle}</h5>
