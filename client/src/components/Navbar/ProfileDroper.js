@@ -123,7 +123,7 @@ const ProfileDroper = () => {
                                             }}
                                         >
                                             <FiSettings />
-                                            Setting
+                                            Settings
                                         </MenuItem>
                                         <MenuItem
                                             className='dropperItemsMenu'

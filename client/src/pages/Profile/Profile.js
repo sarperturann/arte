@@ -15,6 +15,7 @@ const Profile = () => {
   const userState = useSelector((state) => state.userLogin);
   const [userInfo, setUserInfo] = useState({});
   const [saveButton, showSaveButton] = useState(true);
+  let userEmail = localStorage.getItem('userEmail')
   const setFormValues = (user) => {
     setUserInfo({
       name: user.name,
@@ -86,7 +87,7 @@ const Profile = () => {
                 </p>
                 <p>
                   <label htmlFor="email"><HiOutlineMail />Email</label>
-                  <input type="email" defaultValue={userInfo.email} disabled />
+                  <input type="email" value={userEmail} disabled />
                 </p>
               </section>
               <section>
