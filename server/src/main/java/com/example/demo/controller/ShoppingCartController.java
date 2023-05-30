@@ -41,6 +41,13 @@ public class ShoppingCartController {
         return cart.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<ShoppingCart> getCartByUserId(@PathVariable Long userId) {
+        Optional<ShoppingCart> cart = shoppingCartRepository.findByUserId(userId);
+        return cart.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+    }
+
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCartById(@PathVariable Long id) {
         boolean isDeleted = service.deleteCartById(id);
