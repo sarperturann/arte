@@ -3,16 +3,12 @@ import { Routes, Route } from "react-router-dom";
 import {
   Home,
   Shop,
-  Blog,
-  Blogpage,
   Productpage,
   MyCart,
   Myorders,
   PlaceOrder,
   SearchPage,
   Profile,
-  About,
-  Contact,
 } from "./pages";
 import { Navbar, Footer, Toast, UnderDev, BottomNavigationbar } from "./components";
 import { useDispatch } from "react-redux";
@@ -68,7 +64,6 @@ const App = () => {
           <Route path="/myorders" element={<Myorders />} />
           <Route path="/placeorder" element={<PlaceOrder />} />
           <Route path="/myprofile" element={<Profile />} />
-          <Route exact path="/blog/:id" element={<Blogpage />} />
           <Route exact path="/shop/:id" element={<Productpage />} />
           <Route path="/search/:keyword" element={<SearchPage />} />
         </Routes>

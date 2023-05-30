@@ -72,7 +72,7 @@ const Profile = () => {
 
   return (
     <>
-      {userInfo.name !== undefined && userState.loading !== true ?
+      { userState.loading !== true ?
         <div className="profileSetting">
           <h2>
             My Profile
