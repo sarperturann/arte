@@ -7,9 +7,8 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { MdDeleteOutline } from "react-icons/md";
 import { updateCart, deleteProduct } from "../../actions/cartAction";
 import { toast } from "react-toastify";
-import { getCartbyUser } from "../../actions/cartAction";
+import { getCartbyUser,getArtworkbyId } from "../../actions/cartAction";
 import { useNavigate } from "react-router-dom";
-
 const MyCart = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -20,6 +19,8 @@ const MyCart = () => {
   const userCart = useSelector((state) => state.cart);
   const [newCart, setNewCart] = useState([]);
   const [totalAmount, setTotalAmount] = useState(0);
+console.log(userCart)
+let newCartBiz = userCart.cart.artworks.map(id => getArtworkbyId(id));
 
   const updateQnt = (val, action, id) => {
     newCart.filter((item) => {
@@ -76,97 +77,59 @@ const MyCart = () => {
   }) // eslint-disable-line
 
   return (
-    <div className="mycart">
-      {userState.authtokken === null && tkn === undefined ? (
+    <section>
+      {newCart.length > 0 ? (
+        newCart.map((item) => {
+          return (
+            <div key={item.id} className="cartItem">
+              <span
+                className="removeButton"
+                onClick={() => removeItem(item.id)}
+              >
+                <MdDeleteOutline />
+              </span>
+              <img src={item.primaryImg} alt={item.name} />
+              <div className="cartItemMiddleArea">
+                <div className="cartItemAbout">
+                  <h4>{item.name}</h4>
+                  <p>Product Id _{item.id.toString().slice(0, 7)}</p>
+                </div>
+                <span className="cartItemAmount">
+                  <button
+                    onClick={() =>
+                      updateQnt(item.quanitity, "dec", item.id)
+                    }
+                  >
+                    -
+                  </button>
+                  <input
+                    type="number"
+                    value={item.quanitity}
+                    onChange={() => { }} // You need to handle this onChange
+                  />
+                  <button
+                    onClick={() =>
+                      updateQnt(item.quanitity, "inc", item.id)
+                    }
+                  >
+                    +
+                  </button>
+                </span>
+              </div>
+              <h2>
+                Total : $ {item.productPrice * item.quanitity} <br />
+                <span>per unit $ {item.productPrice}</span>
+              </h2>
+            </div>
+          );
+        })
+      ) : (
         <div className="notLoggedin">
           <AiOutlineShoppingCart />
-          <p>Please login to see your item's.</p>
-        </div>
-      ) : userCart.fetching === true ? (
-        <RingLoader />
-      ) : (
-        <div>
-          <nav>
-            <h1>Your Shopping Cart</h1>
-            <div>
-              <strong>Total : $ {totalAmount} </strong>
-              {placeOrUpdate ? (
-                <button
-                  onClick={() => navigate("/placeorder")}
-                  disabled={totalAmount === 0 ? true : false}
-                  style={{ backgroundColor: "var(--lightGreen2)" }}
-                >
-                  Place Order
-                </button>
-              ) : (
-                <button
-                  style={{ backgroundColor: "blue" }}
-                  onClick={() => {
-                    dispatch(updateCart(newCart));
-                    setPlaceOrUpdate(true);
-                  }}
-                >
-                  Update Cart
-                </button>
-              )}
-            </div>
-          </nav>
-          <section>
-            {newCart.length > 0 ? (
-              newCart.map((item) => {
-                return (
-                  <div key={item.id} className="cartItem">
-                    <span
-                      className="removeButton"
-                      onClick={() => removeItem(item.id)}
-                    >
-                      <MdDeleteOutline />
-                    </span>
-                    <img src={item.primaryImg} alt={item.name} />
-                    <div className="cartItemMiddleArea">
-                      <div className="cartItemAbout">
-                        <h4>{item.name}</h4>
-                        <p>Product Id _{item.id.slice(0, 7)}</p>
-                      </div>
-                      <span className="cartItemAmount">
-                        <button
-                          onClick={() =>
-                            updateQnt(item.quanitity, "dec", item.id)
-                          }
-                        >
-                          -
-                        </button>
-                        <input
-                          type="number"
-                          value={item.quanitity}
-                          onChange={() => { }}
-                        />
-                        <button
-                          onClick={() =>
-                            updateQnt(item.quanitity, "inc", item.id)
-                          }
-                        >
-                          +
-                        </button>
-                      </span>
-                    </div>
-                    <h2>
-                      Total : $ {item.productPrice * item.quanitity} <br />
-                      <span>per unit $ {item.productPrice}</span>
-                    </h2>
-                  </div>
-                );
-              })
-            ) : (
-              <div className="notLoggedin">
-                <AiOutlineShoppingCart />
-                <p>Your e-way cart is empty.</p>
-              </div>
-            )}
-          </section>
+          <p>Your e-way cart is empty.</p>
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

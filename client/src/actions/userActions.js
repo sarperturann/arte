@@ -48,6 +48,7 @@ export const userLogin = (email, password) => async (dispatch) => {
         payload: {
           name: user.displayName,
           email: user.email,
+          createdId: user.metadata.createdAt
           // Add other user details as needed
         },
       });
@@ -56,8 +57,11 @@ export const userLogin = (email, password) => async (dispatch) => {
       cookies.set("ui", user.uid);
       localStorage.setItem("userEmail", user.email);
       localStorage.setItem("userName", user.displayName);
+      localStorage.setItem("createdId", user.metadata.createdAt);
 
       dispatch(getCartbyUser("getCartbyUser"))
+      console.log("hophop")
+      console.log(localStorage)
     //  toast.success(`Welcome ${user.displayName}`);
     } else {
       dispatch({
@@ -128,7 +132,15 @@ export const userSignup = (userInfo) => async (dispatch) => {
       userInfo.email,
       userInfo.password
     );
-
+   /* const cartData = {
+      userId: userCredential.user.uid,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      artworks: [],
+    };
+    const createdCart = await axios.post(createCart, cartData);
+    console.log('Cart created:', createdCart.data);
+*/
     // store user info
     dispatch({
       type: USER_SIGNUP_SUCCESS,

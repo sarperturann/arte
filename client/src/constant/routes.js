@@ -7,6 +7,9 @@ export const signup = eway + 'users/signup';
 export const getuser = eway + 'users/getuser';
 export const updateuser = eway + 'users/updateuser/'; // user id required
 
+export const getMyUser = gcloud + 'user/get/'; // user id required
+export const createMyUserCart = gcloud % 'carts/create';
+export const getMyCart = gcloud % 'carts/'; //cart idididi
 // Search route
 export const searchKeyword = eway + 'search/byuser/'; // keyword in param required
 
@@ -25,6 +28,8 @@ export const addproduct = eway + 'products/addblog';
 export const getallproducts = eway + 'products/getallproducts';
 export const getallartworks = gcloud + '/api/v1/artwork/get_all';
 export const getAllArtworkImages = gcloud + "/api/v1/images/get_all";
+export const getCartbyIdBiz = gcloud + "/api/v1/carts/";
+export const getArtworkByIdBiz = gcloud + "/api/v1/artwork/get"
 export const updateproduct = eway + 'products/updateproduct/'; // product id required
 export const deleteproduct = eway + 'products/deleteproduct/'; // product id required
 

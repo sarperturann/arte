@@ -7,7 +7,7 @@ import {
 } from "./index";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { getcartbyid, updatecart, removeProduct } from "../constant/routes";
+import { getCartbyIdBiz, updatecart, removeProduct, getArtworkByIdBiz} from "../constant/routes";
 import Cookies from "universal-cookie";
 
 const update = async (list) => {
@@ -70,6 +70,7 @@ export const deleteProduct = (productId) => async (dispatch) => {
 
 export const getCartbyUser = (action) => async (dispatch) => {
   if (action === "getCartbyUser") {
+  
     dispatch({
       type: FETCH_CART,
       payload: [],
@@ -83,22 +84,51 @@ export const getCartbyUser = (action) => async (dispatch) => {
         "Content-Type": "application/json",
       },
     };
-    if (userId !== undefined) {
+
       axios
-        .get(getcartbyid + userId, config)
+        .get(getCartbyIdBiz + "2")
         .then((res) => {
           if (res.status === 200) {
+            console.log(res.data)
             dispatch({
               type: GET_CART_BY_ID,
-              payload: res.data.cart,
+              payload: res.data,
             });
           }
         })
         .catch((err) => console.error(err));
-    } else {
-      console.log("Please enter a valid action");
-    }
+ 
   }
+};
+
+export const getCartbyId = (action) => async (dispatch) => {
+  if (action === "getCartbyId") {
+    dispatch({
+      type: FETCH_CART,
+      payload: [],
+    });
+
+
+  }
+
+  
+};
+
+export const getArtworkbyId = (artworkId) => async (dispatch) => {
+
+  axios
+        .get(getArtworkByIdBiz + artworkId)
+        .then((res) => {
+          if (res.status === 200) {
+            console.log(res.data)
+            dispatch({
+              type: GET_CART_BY_ID,
+              payload: res.data,
+            });
+          }
+        })
+        .catch((err) => console.error(err));
+
 };
 
 export const cleanCart = () => async (dispatch) => {
