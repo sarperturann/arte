@@ -6,7 +6,6 @@ const Product = ({ product, artworkImage, artwork }) => {
   const { _id, name, price } = product;
   let artworkId, artworkTitle, price2,genre,dimensions,yearcreated,isSold;
   let artistId, artistName, artistYears,artistBio, artistGenre, artistNationality;
-console.log(artwork);
   if (artwork) {
     artworkId = artwork.id;
     artworkTitle = artwork.title;

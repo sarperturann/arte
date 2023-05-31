@@ -6,16 +6,11 @@ import { Button } from '@mui/material'
 
 const ShopItems = () => {
     const productState = useSelector(state => state.getallProducts);
-    console.log(productState)
     const { products } = productState;
-    console.log(products)
     const artworkImagesState = useSelector(state => state.getArtworkImages);
     const artworkImages = artworkImagesState.products;
     const artworkDetailsState = useSelector(state => state.getArtwork);
     const artworkDetails = artworkDetailsState.products;
-    console.log("help")
-    console.log(artworkDetails)
-    console.log("help")
     const [totalProduct, setTotalProduct] = useState(8)
     const [catOption, setCatOption] = useState('All Products');
     const [filteredProduct, setFilteredProduct] = useState([]);
