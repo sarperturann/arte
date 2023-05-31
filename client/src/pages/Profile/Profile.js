@@ -16,6 +16,17 @@ const Profile = () => {
   const [userInfo, setUserInfo] = useState({});
   const [saveButton, showSaveButton] = useState(true);
   let userEmail = localStorage.getItem('userEmail')
+  let userName = localStorage.getItem('name')
+  let phoneNumber = localStorage.getItem('phoneNumber')
+  let pincode = localStorage.getItem('pincode')
+  let city = localStorage.getItem('city')
+  let state = localStorage.getItem('state')
+  let address = localStorage.getItem('address')
+  let landmark = localStorage.getItem('landmark')
+  let secondaryPhoneNumber = localStorage.getItem('secondaryPhoneNumber');
+  let house_flat_no = localStorage.getItem('house_flat_no');
+  console.log(localStorage);
+
   const setFormValues = (user) => {
     setUserInfo({
       name: user.name,
@@ -83,7 +94,7 @@ const Profile = () => {
               <section>
                 <p>
                   <label htmlFor="name"><TiUser />Name</label>
-                  <input name="name" type="text" value={userInfo.name} onChange={e => onChangeHandler(e)} required />
+                  <input name="name" type="text" value={userName} disabled />
                 </p>
                 <p>
                   <label htmlFor="email"><HiOutlineMail />Email</label>
@@ -93,39 +104,39 @@ const Profile = () => {
               <section>
                 <p>
                   <label htmlFor="phoneNumber"><GiSmartphone />Phone (primary)</label>
-                  <input name="phoneNumber" type="number" value={userInfo.phoneNumber === null ? "" : userInfo.phoneNumber} onChange={e => onChangeHandler(e)} required />
+                  <input name="phoneNumber" type="number" value={phoneNumber} disabled />
                 </p>
                 <p>
                   <label htmlFor="secondaryPhoneNumber"><BiPhone />Phone (secondary)</label>
-                  <input name="secondaryPhoneNumber" type="number" value={userInfo.secondaryPhoneNumber === null ? "" : userInfo.secondaryPhoneNumber} onChange={e => onChangeHandler(e)} />
+                  <input name="secondaryPhoneNumber" type="number" value={secondaryPhoneNumber === null ? "" : secondaryPhoneNumber} disabled />
                 </p>
                 <p>
                   <label htmlFor="pincode"><BiMapPin />Pincode</label>
-                  <input name="pincode" type="number" value={userInfo.pincode} onChange={e => onChangeHandler(e)} required />
+                  <input name="pincode" type="number" value={pincode} disabled />
                 </p>
               </section>
               <section>
                 <p>
                   <label htmlFor="city"><GiModernCity />City</label>
-                  <input name="city" type="text" value={userInfo.city} onChange={e => onChangeHandler(e)} required />
+                  <input name="city" type="text" value={city} disabled />
                 </p>
                 <p>
                   <label htmlFor="state"><FaCity />State</label>
-                  <input name="state" type="text" value={userInfo.state} onChange={e => onChangeHandler(e)} />
+                  <input name="state" type="text" value={state} disabled />
                 </p>
                 <p>
                   <label htmlFor="house_flat_no"><BiBuildingHouse />House / Flat No.</label>
-                  <input name="house_flat_no" type="text" value={userInfo.house_flat_no} onChange={e => onChangeHandler(e)} />
+                  <input name="house_flat_no" type="text" value={house_flat_no} disabled />
                 </p>
               </section>
               <section>
                 <p>
                   <label htmlFor="address"><FaRegAddressCard />Address</label>
-                  <input name="address" type="text" value={userInfo.address} onChange={e => onChangeHandler(e)} />
+                  <input name="address" type="text" value={address} disabled />
                 </p>
                 <p>
                   <label htmlFor="landmark"><GiIsland />Landmark</label>
-                  <input name="landmark" type="text" value={userInfo.landmark} onChange={e => onChangeHandler(e)} required />
+                  <input name="landmark" type="text" value={landmark} disabled />
                 </p>
               </section>
             </div>

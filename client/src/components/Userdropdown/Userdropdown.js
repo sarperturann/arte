@@ -9,7 +9,7 @@ import { cleanCart } from '../../actions/cartAction';
 const Userdropdown = ({update}) => {
   let navigate = useNavigate();
   const dispatch = useDispatch();
-  let name = localStorage.getItem('userName')
+  let userName = localStorage.getItem('name')
   let email = localStorage.getItem('userEmail')
   const logout = () => {
     dispatch(userLogout());
@@ -20,7 +20,7 @@ const Userdropdown = ({update}) => {
   return (
     <div className='userDropdown'>
         <div className='upperTriangle'></div>
-        <h2>{name}</h2>
+        <p>{userName}</p>
         <p>{email}</p>
         <hr />
         <li onClick={() => logout()}><FiLogOut />Logout</li>

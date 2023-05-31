@@ -40,6 +40,8 @@ export const userLogin = (email, password) => async (dispatch) => {
 
     // detail request
     const user = userCredential.user;
+    console.log("xx");
+    console.log(user);
 
     if (user.uid) {
       // store user info
@@ -55,9 +57,14 @@ export const userLogin = (email, password) => async (dispatch) => {
 
       // storing user id in cookies
       cookies.set("ui", user.uid);
+      console.log("cghvj");
+      console.log(user.metadata.name);
       localStorage.setItem("userEmail", user.email);
+
       localStorage.setItem("userName", user.displayName);
       localStorage.setItem("createdId", user.metadata.createdAt);
+
+      localStorage.setItem("uid", user.uid );
 
       dispatch(getCartbyUser("getCartbyUser"))
       console.log("hophop")
@@ -129,18 +136,27 @@ export const userSignup = (userInfo) => async (dispatch) => {
   try {
     const userCredential = await createUserWithEmailAndPassword(
       auth,
+
       userInfo.email,
       userInfo.password
     );
-   /* const cartData = {
-      userId: userCredential.user.uid,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-      artworks: [],
-    };
-    const createdCart = await axios.post(createCart, cartData);
-    console.log('Cart created:', createdCart.data);
-*/
+
+    console.log(userInfo);
+    localStorage.setItem("address", userInfo.address);
+    localStorage.setItem("city", userInfo.city);
+    localStorage.setItem("email", userInfo.email);
+    localStorage.setItem("name", userInfo.name);
+    localStorage.setItem("phoneNumber", userInfo.phoneNumber);
+    localStorage.setItem("pincode", userInfo.pincode);
+    localStorage.setItem("state", userInfo.state);
+    localStorage.setItem("landmark", userInfo.landmark );
+    localStorage.setItem("secondaryPhoneNumber", userInfo.secondaryPhoneNumber);
+    localStorage.setItem("house_flat_no", userInfo.house_flat_no);
+
+
+
+
+
     // store user info
     dispatch({
       type: USER_SIGNUP_SUCCESS,
@@ -155,6 +171,10 @@ export const userSignup = (userInfo) => async (dispatch) => {
     toast.error(error.message);
     console.log(error);
   }
+
+
+
+
 };
 
 // user Logout

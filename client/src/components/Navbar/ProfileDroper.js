@@ -54,7 +54,7 @@ const ProfileDroper = () => {
         navigate('/')
     }
 
-    let userName = localStorage.getItem('userName')
+    let userName = localStorage.getItem('name')
     let userEmail = localStorage.getItem('userEmail')
 
     useEffect(() => {
