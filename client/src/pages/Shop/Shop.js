@@ -10,12 +10,11 @@ const Shop = () => {
   return (
     <div className='shop'>
       <div className='shopTitle'>
-        <h2>Shop</h2>
+        <h2>Art Gallery</h2>
         <p>
           <Link to='/'>
-            <strong>Home </strong>
           </Link>
-          / Product
+          / アートギャラリー
         </p>
       </div>
       <ShopItems />
