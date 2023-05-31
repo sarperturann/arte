@@ -32,7 +32,6 @@ export const cart = (action, list) => async (dispatch) => {
       payload: [...list],
     });
     update(list)
-    toast.success(`Product Added`);
   } else {
     console.log("Please enter a valid action");
   }
