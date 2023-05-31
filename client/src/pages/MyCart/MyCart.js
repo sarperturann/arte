@@ -20,7 +20,7 @@ const MyCart = () => {
   const [newCart, setNewCart] = useState([]);
   const [totalAmount, setTotalAmount] = useState(0);
 console.log(userCart)
-let newCartBiz = userCart.cart.artworks.map(id => getArtworkbyId(id));
+//let newCartBiz = userCart.cart.artworks.map(id => getArtworkbyId(id));
 
   const updateQnt = (val, action, id) => {
     newCart.filter((item) => {
@@ -64,9 +64,7 @@ let newCartBiz = userCart.cart.artworks.map(id => getArtworkbyId(id));
     }
   }, []); // eslint-disable-line
 
-  useEffect(() => {
-    setNewCart(JSON.parse(JSON.stringify(userCart.cart)));
-  }, [userCart.cart]); // eslint-disable-line
+ // eslint-disable-line
 
   useEffect(() => {
     calculateTotal();
