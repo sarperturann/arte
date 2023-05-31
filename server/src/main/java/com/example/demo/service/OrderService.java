@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.dao.Artwork;
 import com.example.demo.dao.Order;
 import com.example.demo.dao.ShoppingCart;
 import com.example.demo.pubsub.OrderPublisher;
@@ -16,10 +17,12 @@ import java.util.concurrent.ExecutionException;
 @Service
 public class OrderService {
     private final OrderRepository repository;
+    private final ArtworkService artworkService;
 
     @Autowired
-    public OrderService(OrderRepository repository){
+    public OrderService(OrderRepository repository, ArtworkService artworkService){
         this.repository = repository;
+        this.artworkService = artworkService;
     }
 
     public List<Order> getAllOrders() {
@@ -29,7 +32,7 @@ public class OrderService {
     public void triggerOrder(ShoppingCart shoppingCart) throws IOException, ExecutionException, InterruptedException {
         Order order = convertOrder(shoppingCart);
         createOrder(order);
-        OrderPublisher.orderPublish("Order received:" + order.toString());
+        OrderPublisher.orderPublish("*** ORDER RECEIVED: " + order.toString());
         OrderSubscriber.subscribeOrder();
     }
 
@@ -39,9 +42,18 @@ public class OrderService {
         Order order = new Order();
         order.setUserId(shoppingCart.getUserId());
         order.setOrderDate(LocalDateTime.now());
-        order.setAddress("Test Street, 3rd Avenue, Vocalism 5");
+        order.setAddress("Bilkent University Main Campus");
         order.setPaymentId(0L);
-        order.setTotalAmount(0L);
+
+        long totalAmount = 0L;
+        long[] artworks = shoppingCart.getArtworks();
+        for (long id : artworks) {
+            Artwork artwork = artworkService.getArtworkById(id).orElse(null);
+            if(artwork != null) {
+                totalAmount += artwork.getPrice().longValue();
+            }
+        }
+        order.setTotalAmount(totalAmount);
         order.setStatus("ACCEPTED");
 
         return order;
