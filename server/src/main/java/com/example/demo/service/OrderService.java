@@ -18,11 +18,13 @@ import java.util.concurrent.ExecutionException;
 public class OrderService {
     private final OrderRepository repository;
     private final ArtworkService artworkService;
+    private final ShoppingCartService shoppingCartService;
 
     @Autowired
-    public OrderService(OrderRepository repository, ArtworkService artworkService){
+    public OrderService(OrderRepository repository, ArtworkService artworkService, ShoppingCartService shoppingCartService){
         this.repository = repository;
         this.artworkService = artworkService;
+        this.shoppingCartService = shoppingCartService;
     }
 
     public List<Order> getAllOrders() {
@@ -49,6 +51,7 @@ public class OrderService {
             Artwork artwork = artworkService.getArtworkById(id).orElse(null);
             if(artwork != null) {
                 totalAmount += artwork.getPrice().longValue();
+                shoppingCartService.removeArtwork(shoppingCart.getId(), artwork.getId());
             }
         }
         order.setTotalAmount(totalAmount);

@@ -83,7 +83,7 @@ const ShoppingCart = () => {
   };
 
   const placeOrder = async () => {
-      await axios.get(gcloud + '/api/v1/order/trigger?id=2');
+      await axios.post(gcloud + '/api/v1/order/trigger?id=2');
       toast.success("Order successfull");
       navigate("/")
   };

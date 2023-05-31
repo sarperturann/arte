@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 @CrossOrigin(maxAge = 3600)
@@ -36,7 +37,13 @@ public class OrderController {
         Optional<ShoppingCart> shoppingCart = cartService.getCartById(id);
 
         if (shoppingCart.isPresent()) {
-            service.triggerOrder(shoppingCart.get());
+            CompletableFuture.runAsync(() -> {
+                try {
+                    service.triggerOrder(shoppingCart.get());
+                } catch (IOException | ExecutionException | InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            });
             return ResponseEntity.ok("Request Triggered");
         } else {
             return ResponseEntity.badRequest().body("ShoppingCart not found for id: " + id);
