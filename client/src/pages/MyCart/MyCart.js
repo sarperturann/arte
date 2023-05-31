@@ -124,7 +124,7 @@ console.log(userCart)
       ) : (
         <div className="notLoggedin">
           <AiOutlineShoppingCart />
-          <p>Your e-way cart is empty.</p>
+          <p>Your cart is empty.</p>
         </div>
       )}
     </section>
