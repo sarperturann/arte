@@ -82,6 +82,12 @@ const ShoppingCart = () => {
     }
   };
 
+  const placeOrder = async () => {
+      await axios.get(gcloud + '/api/v1/order/trigger?id=2');
+      toast.success("Order successfull");
+      navigate("/")
+  };
+
   return (
     <div className="mycart">
       <nav>
@@ -90,7 +96,7 @@ const ShoppingCart = () => {
           <strong>Total: $ {totalPrice}</strong>
           {cart && cart.artworks && cart.artworks.length > 0 ? (
             <button
-              onClick={() => navigate("/placeorder")}
+              onClick={placeOrder}
               disabled={cart.artworks.length === 0}
               style={{ backgroundColor: "var(--lightGreen2)" }}
             >
