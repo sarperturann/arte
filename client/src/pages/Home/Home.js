@@ -5,9 +5,6 @@ const Home = () => {
   return (
     <>
       <HomeSlider />
-      <Categories />
-      <Ourstore />
-      <Banner />
       <Newproduct />
     </>
   )

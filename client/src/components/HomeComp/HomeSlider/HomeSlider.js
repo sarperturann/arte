@@ -19,11 +19,11 @@ const HomeSlider = () => {
         className="mySwiper">
         <SwiperSlide>
           <div className='banner'>
-            <img className='bannerImg' src="https://res.cloudinary.com/inovatormatin/image/upload/v1653646901/eway/homeSlide/slider4_gqz07j.jpg" alt="banner3" />
+            <img className='bannerImg' src="https://rare-gallery.com/uploads/posts/1007423-painting-birds-sea-bay-water-rock-nature-shore-artwork-clouds-beach-storm-waves-coast-cliff-wind-oil-painting-cloud-ocean-wave-material-Rapid-atmospheric-phenomenon-bod.jpg" alt="banner3" />
             <section className='offer leftSideOffer'>
-              <span>SUMMER 30</span>
-              <h1>NEW HOT <br />EVERYTHING</h1>
-              <p>CHECK OUT SUMMER <br /> COLLECTION FIRST COME TO GET <br /> THE BEST!</p>
+              <span></span>
+              <h1>ART IS <br />EVERYTHING</h1>
+              <p>CHECK OUT OUR NEWEST <br /> COLLECTION FOR <br /> THE BEST ART PIECES!</p>
               <div>
                 <Link to='./blog'>
                   <button className='readMore'>READ MORE</button>
@@ -37,11 +37,11 @@ const HomeSlider = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div className='banner'>
-            <img className='bannerImg' src="https://res.cloudinary.com/inovatormatin/image/upload/v1653646901/eway/homeSlide/slider3_adqbhb.jpg" alt="banner2" />
+            <img className='bannerImg' src="https://rare-gallery.com/uploads/posts/5362804-painting-art-contemporary-texture-vibrant-color-colour-acrylic-creative-design-modern-vibrant-color-expressionism-abstract-expressionism-acrylic-paint-modern-art-contemporary-art-wall-art-wall.jpg" alt="banner2" />
             <section className='offer rightSideOffer'>
-              <span>SPRING SPECIAL</span>
-              <h1>BECAUSE IMAGE<br />IS EVERYTHING</h1>
-              <p>CHECK OUT SUMMER <br /> COLLECTION FIRST COME TO GET <br /> THE BEST!</p>
+              <span>SPECIAL ARTISTS</span>
+              <h1>PAINTING <br />IS JUST ANOTHER WAY OF KEEPING A DIARY</h1>
+              <p>CHECK OUT THE<br /> BEST PIECES OF OUR ARTISTS <br /> </p>
               <div>
                 <Link to='./blog'>
                   <button className='readMore'>READ MORE</button>
@@ -53,29 +53,8 @@ const HomeSlider = () => {
             </section>
           </div>
         </SwiperSlide>
-        <SwiperSlide>
-          <div className='banner'>
-            <img className='bannerImg' src="https://res.cloudinary.com/inovatormatin/image/upload/v1681563758/eway/homeSlide/sllider_3_nl2uir.png" alt="banner1" />
-            <section className='offer leftSideOffer'>
-              <span style={{ color: "#d23315" }}>REEBOK SPECIAL</span>
-              <h1>IMPOSSIBLE IS<br />NOTHING</h1>
-              <p>CHECK OUT SUMMER <br /> COLLECTION FIRST COME TO GET <br /> THE BEST!</p>
-              <div>
-                <Link to='./blog'>
-                  <button className='readMore' style={{ backgroundColor: "#d23315" }}>READ MORE</button>
-                </Link>
-                <Link to='./shop'>
-                  <button className='showMore'>SHOP NOW</button>
-                </Link>
-              </div>
-            </section>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className='banner'>
-            <img className='bannerImg' src="https://res.cloudinary.com/inovatormatin/image/upload/v1681920543/eway/homeSlide/banner3_4x_yn3eoh.png" alt="banner4" />
-          </div>
-        </SwiperSlide>
+        
+       
       </Swiper>
     </>
   )
