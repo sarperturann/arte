@@ -31,7 +31,7 @@ public class OrderController {
         return service.getAllOrders();
     }
 
-    @GetMapping("/trigger")
+    @PostMapping("/trigger")
     public ResponseEntity ordered(@RequestParam Long id) throws IOException, ExecutionException, InterruptedException {
         Optional<ShoppingCart> shoppingCart = cartService.getCartById(id);
 

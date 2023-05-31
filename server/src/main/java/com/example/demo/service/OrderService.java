@@ -37,13 +37,11 @@ public class OrderService {
     }
 
     public Order convertOrder(ShoppingCart shoppingCart) {
-        // TODO: Add logic for payment calculation after artworks are ready
-        // TODO: Add logic for address fetching after user is ready
         Order order = new Order();
         order.setUserId(shoppingCart.getUserId());
         order.setOrderDate(LocalDateTime.now());
         order.setAddress("Bilkent University Main Campus");
-        order.setPaymentId(0L);
+        order.setPaymentId(43L);
 
         long totalAmount = 0L;
         long[] artworks = shoppingCart.getArtworks();
