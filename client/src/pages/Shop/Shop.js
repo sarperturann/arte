@@ -14,7 +14,7 @@ const Shop = () => {
         <p>
           <Link to='/'>
           </Link>
-          / アートギャラリー
+          アートギャラリー
         </p>
       </div>
       <ShopItems />

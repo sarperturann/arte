@@ -10,7 +10,7 @@ import {
 import axios from 'axios'
 import Cookies from "universal-cookie";
 import { toast } from "react-toastify";
-import { placeorder, getorders, cancelorder, updatecart } from '../constant/routes'
+import { placeorder, getorders, cancelorder, updatecart ,getallordersBiz} from '../constant/routes'
 
 const cleanCart = async () => {
     const cookies = new Cookies();
@@ -42,15 +42,18 @@ export const getallOrders = () => async (dispatch) => {
         },
     };
     // get all Orders request
-    const orderData = await axios.get(getorders + ui, config)
+    const orderData = await axios.get(getallordersBiz)
         .then(res => res)
         .catch(error => error.response.data.error);
+        console.log(orderData.data)
 
     if (orderData.status === 200) {
         dispatch({
+            
             type: GET_ORDERS_RESPONSE,
             payload: orderData.data,
-        });
+        }
+        );
     } else {
         dispatch({
             type: GET_ORDERS_FAIL,

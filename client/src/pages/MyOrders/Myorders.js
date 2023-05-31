@@ -20,9 +20,10 @@ const Myorders = () => {
     useEffect(() => {
         window.scrollTo(0, 0)
       }) // eslint-disable-line
-      
+      console.log(userOrders.orders)
     return (
         <>
+        
             {userOrders.loading === true ?
                 <RingLoader />
                 :
@@ -30,19 +31,7 @@ const Myorders = () => {
                     <h1>My Orders</h1>
                      
                     <div>
-                    // commented
-                    </div>
-                </div>
-            }
-        </>
-    )
-}
-
-export default Myorders
-
-//commented:
-/** 
-{userOrders.orders.length > 0 ?
+                    {userOrders.orders.length > 0 ?
     userOrders.orders.map((item, key) => {
         return <ProductTable key={key} data={item} index={key + 1} />
     })
@@ -55,4 +44,12 @@ export default Myorders
     >You don't have any order.
     </p>
 }
-*/
+                    </div>
+                </div>
+            }
+        </>
+    )
+}
+
+export default Myorders
+

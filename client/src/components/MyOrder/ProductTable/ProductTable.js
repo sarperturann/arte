@@ -10,6 +10,7 @@ const ProductTable = ({ data, index }) => {
   const [open, setOpen] = useState(false);
   const [totalAmount, setTotalAmount] = useState(0);
   const [delDate, setDelDate] = useState();
+  /*
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -31,74 +32,34 @@ const ProductTable = ({ data, index }) => {
   useEffect(() => {
     calculateTotal();
   });
-  return (
-    <div className="orderCard">
-      <PopupModal open={open} handleClose={handleClose} data={data} />
-      <h3>
-        <span>
-          <CgShoppingBag /> {index}
-        </span>{" "}
-        Delivery by {delDate}
-      </h3>
-      <table className="myorderTable">
-        <tbody>
-          <tr>
-            <th></th>
-            <th>Image</th>
-            <th>Name</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Total</th>
-          </tr>
-          {data.items.map((data, index) => {
-            return (
-              <tr key={index}>
-                <td>{index + 1}.</td>
-                <td className="itemImageOrders">
-                  <img src={data.primaryImg} alt={data.name} />
-                </td>
-                <td>{data.name}</td>
-                <td>x{data.quanitity}</td>
-                <td>$ {data.productPrice}</td>
-                <td>$ {data.quanitity * data.productPrice}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <div className="myorderTableMobile">
-      {data.items.map((data, index) => {
-        return (
-          <div key={index} className="productCardinMyOreders">
-            <img src={data.primaryImg} alt={data.name} />
-            <div className="productCardinMyOredersDetials">
-              <h3>{data.name}</h3>
-              <p>
-                <span>Quantity : x{data.quanitity} | </span>
-                <span>$ {data.productPrice} per unit</span>
-              </p>
-              <p>
-                <strong>Total : $ {data.quanitity * data.productPrice}</strong>
-              </p>
-            </div>
-          </div>
-        );
-      })}
-      </div>
-      <h4>
-        <span>
-          <button onClick={() => handleClickOpen()}>See Details</button>
-          <button
-            className="danger"
-            onClick={() => dispatch(cancleUserOrder(data._id))}
-          >
-            Cancel Order
-          </button>
-        </span>
-        Total : $ {totalAmount}
-      </h4>
-    </div>
-  );
+  */
+ return (
+  <div className="orderCard">
+    <h3>Order #{index}</h3>
+    <table className="myorderTable">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>User ID</th>
+          <th>Order Date</th>
+          <th>Address</th>
+          <th>Total Amount</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{data.id}</td>
+          <td>{data.userId}</td>
+          <td>{new Date(data.orderDate).toLocaleDateString()}</td>
+          <td>{data.address}</td>
+          <td>$ {data.totalAmount}</td>
+          <td>{data.status}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+);
 };
 
 export default ProductTable;

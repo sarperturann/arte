@@ -43,3 +43,5 @@ export const removeProduct = eway + 'carts/deleteproduct/'; // user id and produ
 export const placeorder = eway + 'userorder/placeorder'; // authentication required
 export const getorders = eway + 'userorder/getorders/'; // user id required in params + authentication required
 export const cancelorder = eway + 'userorder/cancelorder/'; // order id required in params + authentication required
+
+export const getallordersBiz = gcloud + '/api/v1/order/get_all';
