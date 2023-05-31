@@ -2,6 +2,7 @@ import {
   ADD_TO_CART,
   FETCH_CART,
   GET_CART_BY_ID,
+  GET_ARTWORK_BY_ID,
   CLEAN_CART,
   MODIFY_CART,
 } from "./index";
@@ -89,7 +90,8 @@ export const getCartbyUser = (action) => async (dispatch) => {
         .get(getCartbyIdBiz + "2")
         .then((res) => {
           if (res.status === 200) {
-            console.log(res.data)
+
+            console.log("ggetting the cart" + res.data)
             dispatch({
               type: GET_CART_BY_ID,
               payload: res.data,
@@ -115,20 +117,17 @@ export const getCartbyId = (action) => async (dispatch) => {
 };
 
 export const getArtworkbyId = (artworkId) => async (dispatch) => {
-
   axios
-        .get(getArtworkByIdBiz + artworkId)
-        .then((res) => {
-          if (res.status === 200) {
-            console.log(res.data)
-            dispatch({
-              type: GET_CART_BY_ID,
-              payload: res.data,
-            });
-          }
-        })
-        .catch((err) => console.error(err));
-
+    .get(getArtworkByIdBiz + artworkId)
+    .then((res) => {
+      if (res.status === 200) {
+        dispatch({
+          type: GET_ARTWORK_BY_ID, // Note: You'll need to handle this action in your reducer
+          payload: { artworkId, artwork: res.data },
+        });
+      }
+    })
+    .catch((err) => console.error(err));
 };
 
 export const cleanCart = () => async (dispatch) => {

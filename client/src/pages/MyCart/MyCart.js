@@ -18,29 +18,14 @@ const MyCart = () => {
   const userState = useSelector((state) => state.userLogin);
   const userCart = useSelector((state) => state.cart);
   const [newCart, setNewCart] = useState([]);
-  const [totalAmount, setTotalAmount] = useState(0);
-console.log(userCart)
-//let newCartBiz = userCart.cart.artworks.map(id => getArtworkbyId(id));
 
-  const updateQnt = (val, action, id) => {
-    newCart.filter((item) => {
-      if (item.id === id && action === "dec") {
-        val !== 1
-          ? (item.quanitity = val - 1)
-          : toast.error(`Minimum Quantity 1 required.`);
-      } else if (item.id === id && action === "inc") {
-        item.quanitity = val + 1;
-      }
-      return null;
-    });
-    setNewCart([...newCart]);
-    if (JSON.stringify(userCart.cart) === JSON.stringify(newCart)) {
-      setPlaceOrUpdate(true);
-    } else {
-      setPlaceOrUpdate(false);
-    }
-    calculateTotal();
-  };
+  const [newCartBiz, setNewCartBiz] = useState([]);
+  const artworks = useSelector((state) => state.artworks);
+  const [totalAmount, setTotalAmount] = useState(0);
+console.log(userCart.cart)
+console.log(userCart.artworks)
+
+
 
   const removeItem = async (id) => {
     let tempCart = newCart.filter((item) => {
@@ -64,11 +49,21 @@ console.log(userCart)
     }
   }, []); // eslint-disable-line
 
- // eslint-disable-line
+   // eslint-disable-line
 
   useEffect(() => {
     calculateTotal();
   }, [newCart]); // eslint-disable-line
+
+  useEffect(() => {
+    const fetchArtworksDetails = async () => {
+      if (userCart && userCart.cart && userCart.cart.artworks) {
+        userCart.cart.artworks.map(id => dispatch(getArtworkbyId(id)));
+      }
+    };
+  
+    fetchArtworksDetails();
+  }, [userCart, dispatch]);
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -76,59 +71,37 @@ console.log(userCart)
 
   return (
     <section>
-      {newCart.length > 0 ? (
-        newCart.map((item) => {
-          return (
-            <div key={item.id} className="cartItem">
-              <span
-                className="removeButton"
-                onClick={() => removeItem(item.id)}
-              >
-                <MdDeleteOutline />
-              </span>
-              <img src={item.primaryImg} alt={item.name} />
-              <div className="cartItemMiddleArea">
-                <div className="cartItemAbout">
-                  <h4>{item.name}</h4>
-                  <p>Product Id _{item.id.toString().slice(0, 7)}</p>
-                </div>
-                <span className="cartItemAmount">
-                  <button
-                    onClick={() =>
-                      updateQnt(item.quanitity, "dec", item.id)
-                    }
-                  >
-                    -
-                  </button>
-                  <input
-                    type="number"
-                    value={item.quanitity}
-                    onChange={() => { }} // You need to handle this onChange
-                  />
-                  <button
-                    onClick={() =>
-                      updateQnt(item.quanitity, "inc", item.id)
-                    }
-                  >
-                    +
-                  </button>
-                </span>
+     {Object.keys(userCart.artworks).length > 0 ? (
+      Object.values(userCart.artworks).map((artwork) => {
+        return (
+          <div key={artwork.id} className="cartItem">
+            <span
+              className="removeButton"
+              onClick={() => removeItem(artwork.id)}
+            >
+              <MdDeleteOutline />
+            </span>
+            <div className="cartItemMiddleArea">
+              <div className="cartItemAbout">
+                <h4>{artwork.title}</h4>
+                <p>Product Id _{artwork.id}</p>
               </div>
-              <h2>
-                Total : $ {item.productPrice * item.quanitity} <br />
-                <span>per unit $ {item.productPrice}</span>
-              </h2>
             </div>
-          );
-        })
-      ) : (
-        <div className="notLoggedin">
-          <AiOutlineShoppingCart />
-          <p>Your e-way cart is empty.</p>
-        </div>
-      )}
+            <h2>
+              Price : $ {artwork.price} 
+            </h2>
+          </div>
+        );
+      })
+    ) : (
+      <div className="notLoggedin">
+        <AiOutlineShoppingCart />
+        <p>Your e-way cart is empty.</p>
+      </div>
+    )}
     </section>
   );
-};
+}
+
 
 export default MyCart;

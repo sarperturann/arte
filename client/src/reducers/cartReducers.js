@@ -3,7 +3,8 @@ import {
   FETCH_CART,
   GET_CART_BY_ID,
   CLEAN_CART,
-  MODIFY_CART
+  MODIFY_CART,
+  GET_ARTWORK_BY_ID
 } from "../actions/index";
 
 export const initialState = {
@@ -21,6 +22,14 @@ export const cartReducer = (state = initialState, action) => {
             return { ...state, cart : action.payload };
         case MODIFY_CART:
             return { ...state, cart : action.cart };
+            case GET_ARTWORK_BY_ID:
+                return {
+                  ...state,
+                  artworks: {
+                    ...state.artworks,
+                    [action.payload.artworkId]: action.payload.artwork,
+                  },
+                };
         case CLEAN_CART:
             return { ...state, cart : action.payload };
         // case BLOGS_REQUEST_SUCCESS:
