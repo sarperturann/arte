@@ -23,7 +23,7 @@ const HomeSlider = () => {
             <section className='offer leftSideOffer'>
               <span></span>
               <h1>ART IS <br />EVERYTHING</h1>
-              <p>CHECK OUT OUR NEWEST <br /> COLLECTION FOR <br /> THE BEST ART PIECES!</p>
+              <p>CHECK OUT OUR NEW <br /> COLLECTION FOR <br /> THE BEST ART PIECES!</p>
               <div>
                 <Link to='./blog'>
                   <button className='readMore'>READ MORE</button>
@@ -53,6 +53,8 @@ const HomeSlider = () => {
             </section>
           </div>
         </SwiperSlide>
+
+      
         
        
       </Swiper>
