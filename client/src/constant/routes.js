@@ -29,7 +29,7 @@ export const getallproducts = eway + 'products/getallproducts';
 export const getallartworks = gcloud + '/api/v1/artwork/get_all';
 export const getAllArtworkImages = gcloud + "/api/v1/images/get_all";
 export const getCartbyIdBiz = gcloud + "/api/v1/carts/";
-export const getArtworkByIdBiz = gcloud + "/api/v1/artwork/get"
+export const getArtworkByIdBiz = gcloud + "/api/v1/artwork/get/"
 export const updateproduct = eway + 'products/updateproduct/'; // product id required
 export const deleteproduct = eway + 'products/deleteproduct/'; // product id required
 
