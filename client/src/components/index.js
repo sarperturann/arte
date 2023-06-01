@@ -1,6 +1,4 @@
 // Home comp Exports ...
-export { default as  Banner } from "./HomeComp/Banner/Banner";
-export { default as Categories } from "./HomeComp/Categories/Categories";
 export { default as  HomeSlider } from "./HomeComp/HomeSlider/HomeSlider";
 export { default as  Newproduct } from "./HomeComp/Newproduct/Newproduct";
 export { default as  Ourstore } from "./HomeComp/Ourstore/Ourstore";
@@ -10,9 +8,7 @@ export { default as  Product } from "./HomeComp/Product/Product";
 export { default as ShopItems } from "./Shop/ShopItems/ShopItems";
 export { default as Dropdown } from "./Shop/Dropdown/Dropdown";
 
-// Blog comp export ...
-export { default as BlogCard } from "./Blog/BlogCard/BlogCard";
-export { default as MiniCard } from "./Blog/MiniCard/MiniCard";
+
 
 // Productpage comp export ...
 export { default as Preview } from "./Productpage/Preview/Preview";

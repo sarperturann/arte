@@ -7,7 +7,6 @@ import {
   MyCart,
   Myorders,
   PlaceOrder,
-  SearchPage,
   Profile,
 } from "./pages";
 import { Navbar, Footer, Toast, UnderDev, BottomNavigationbar } from "./components";
@@ -65,7 +64,6 @@ const App = () => {
           <Route path="/placeorder" element={<PlaceOrder />} />
           <Route path="/myprofile" element={<Profile />} />
           <Route exact path="/shop/:id" element={<Productpage />} />
-          <Route path="/search/:keyword" element={<SearchPage />} />
         </Routes>
         <Footer />
       </div>
